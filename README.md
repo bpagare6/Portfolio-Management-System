@@ -22,9 +22,10 @@ Design and create a portfolio management system which aims to :
 3. Activate the virtual environment.
 4. Download the requirements, `pip install requirements.txt`
 5. Go inside the `portfolio_management_system` folder which is actual Django project.
-6. Make database up to date, `python manage.py makemigrations` and `python manage.py migrate`
-7. Run the project `python manage.py runserver`
-8. Visit `localhost:8000` in your browser and you should be able to use the project :smiley:.
+6. Create a .env file from which your environment variables will be fetched.
+7. Make database up to date, `python manage.py makemigrations` and `python manage.py migrate`
+8. Run the project `python manage.py runserver`
+9. Visit `localhost:8000` in your browser and you should be able to use the project :smiley:.
 
 ## Team Members
 1. Bhushan Pagare [![Linkedin](https://i.stack.imgur.com/gVE0j.png)](https://www.linkedin.com/in/bpagare6) [![GitHub](https://i.stack.imgur.com/tskMh.png)](https://github.com/bpagare6)
