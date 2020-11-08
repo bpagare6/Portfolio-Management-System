@@ -16,6 +16,16 @@ Design and create a portfolio management system which aims to :
 ## Architecture Diagram
 ![](./images/Architecture-Diagram.png)
 
+## Using Project Locally
+1. Clone the repository `git clone https://github.com/bpagare6/Portfolio-Management-System.git`
+2. Create virtual environment inside the `Portfolio-Management-System` folder.
+3. Activate the virtual environment.
+4. Download the requirements, `pip install requirements.txt`
+5. Go inside the `portfolio_management_system` folder which is actual Django project.
+6. Make database up to date, `python manage.py makemigrations` and `python manage.py migrate`
+7. Run the project `python manage.py runserver`
+8. Visit `localhost:8000` in your browser and you should be able to use the project :smiley:.
+
 ## Team Members
 1. Bhushan Pagare [![Linkedin](https://i.stack.imgur.com/gVE0j.png)](https://www.linkedin.com/in/bpagare6) [![GitHub](https://i.stack.imgur.com/tskMh.png)](https://github.com/bpagare6)
 2. Purvesh Jain [![Linkedin](https://i.stack.imgur.com/gVE0j.png)](https://www.linkedin.com/in/purvesh-jain-035727155/) [![GitHub](https://i.stack.imgur.com/tskMh.png)](https://github.com/purvesh314)
@@ -24,4 +34,5 @@ Design and create a portfolio management system which aims to :
 
 ### Would Like to Contribute?
 Please watch the video : https://youtu.be/MnUd31TvBoU
-Send the pull request, we will review it and if possible will merge it in the codebase :)
+
+Send the pull request, we will review it and if possible will merge it in the codebase :smiley:.
