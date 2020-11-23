@@ -42,6 +42,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
+    # Our Apps
+    'home',
+
+    # Third Party - 1) All Auth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.twitter',
 ]
 
 MIDDLEWARE = [
@@ -59,7 +71,7 @@ ROOT_URLCONF = 'portfolio_management_system.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,6 +79,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                # `allauth` needs this from django
+                'django.template.context_processors.request',
             ],
         },
     },
@@ -84,6 +99,15 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 
 
 # Password validation
@@ -123,3 +147,42 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+# Required for all-auth
+SITE_ID = 1
+
+
+# Provider specific settings for all-auth apps
+SOCIALACCOUNT_PROVIDERS = {
+    'facebook': {
+        'APP': {
+            'client_id': str(os.getenv('FACEBOOK_CLIENT_ID')),
+            'secret': str(os.getenv('FACEBOOK_SECRET_KEY')),
+            'key': ''
+        }
+    },
+    'google': {
+        'APP': {
+            'client_id': str(os.getenv('GOOGLE_CLIENT_ID')),
+            'secret': str(os.getenv('GOOGLE_SECRET_KEY')),
+            'key': ''
+        }
+    },
+    'twitter': {
+        'APP': {
+            'client_id': str(os.getenv('TWITTER_CLIENT_ID')),
+            'secret': str(os.getenv('TWITTER_SECRET_KEY')),
+            'key': ''
+        }
+    }
+}
+
+# Email Backend - Currently set at console/terminal
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+# Custom Settings - allauth
+LOGIN_REDIRECT_URL = "/"

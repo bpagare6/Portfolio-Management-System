@@ -1,0 +1,118 @@
+:root {
+    --forny-form-paddings: 2.5rem;
+
+    --forny-color-accent-500: hsla(244, 79%, 52%, 1);
+    --forny-color-accent-700: hsla(244, 72%, 40%, 1);
+
+    --forny-color-gray-100: hsla(216, 33%, 97%, 1);
+    --forny-color-gray-300: hsla(0, 0%, 0%, 0.1);
+    --forny-color-gray-500: hsla(0, 0%, 61%, 1);
+    --forny-color-gray-700: hsla(210, 27%, 70%, 1);
+    --forny-color-gray-900: hsla(210, 13%, 20%, 1);
+
+    --forny-font-family: 'Open Sans', sans-serif;
+    --forny-color-text: var(--forny-color-gray-500);
+    --forny-color-header: var(--forny-color-gray-900);
+    --forny-link-color: var(--forny-color-accent-700);
+
+    --forny-form-control-border: none;
+    --forny-form-control-padding: var(--forny-p2) var(--forny-p4);
+    --forny-form-control-radius: 20px;
+    --forny-form-control-background: var(--forny-color-gray-100);
+    --forny-shadow-color: var(--forny-color-gray-300);
+}
+
+.forny-container {
+    background-size: contain;
+    display: flex;
+    align-items: center;
+}
+
+.forny-inner {
+    display: block;
+    height: auto;
+}
+
+.forny-form {
+    padding: 2.5rem;
+    padding: var(--forny-form-paddings);
+    background: white;
+    border-radius: 12px;
+}
+
+.forny-logo {
+    color: hsla(210, 13%, 20%, 1);
+    color: var(--forny-color-gray-900);
+}
+
+@media (min-width: 768px) {
+    .forny-container {
+        background: url('../img/bg-03-02.svg') center center no-repeat,
+            url('../img/bg-03-01.svg') center center no-repeat;
+        background-color: hsla(216, 33%, 97%, 1);
+        background-color: var(--forny-color-gray-100);
+    }
+    .forny-form {
+        box-shadow: 0 3px 6px hsla(0, 0%, 0%, 0.1);
+        box-shadow: var(--forny-shadow);
+    }
+}
+
+.forny-form a {
+    font-size: 0.875rem;
+    font-size: var(--forny-text-sm);
+}
+
+/* FORMS */
+
+.forny-form .form-group {
+    margin-bottom: 1rem;
+    margin-bottom: var(--forny-p4);
+    background: hsla(216, 33%, 97%, 1);
+    background: var(--forny-form-control-background);
+    border-radius: 20px;
+    border-radius: var(--forny-form-control-radius);
+    transition: box-shadow 0.3s;
+    border: 1px solid hsla(216, 33%, 97%, 1);
+    border: 1px solid var(--forny-form-control-background);
+}
+
+/* BUTTONS */
+
+.forny-form .btn {
+    border-radius: 20px;
+    border-radius: var(--forny-form-control-radius);
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    padding: var(--forny-p2) var(--forny-p4);
+}
+
+/* INPUT ADDONS */
+
+.forny-form .form-group .input-group-append .input-group-text {
+    padding-left: 0.5rem;
+    padding-left: var(--forny-p2);
+}
+
+.forny-form .form-group .input-group-append .input-group-text:hover {
+    color: var(--forny-color-blue-500);
+}
+
+.forny-form .input-group-prepend .input-group-text {
+    padding-right: 0.5rem;
+    padding-right: var(--forny-p2);
+}
+
+.forny-container .line {
+    background: hsla(0, 0%, 61%, 1);
+    background: var(--forny-color-gray-500);
+    height: 1px;
+    margin-top: 12px;
+    text-align: center;
+}
+.forny-container .line span {
+    background: #fff;
+    padding: 8px;
+    position: relative;
+    top: -12px;
+}

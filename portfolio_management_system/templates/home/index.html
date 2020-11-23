@@ -1,0 +1,653 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="keywords" content="crypto, mining, animation, example, examples">
+	<meta name="author" content="Creativegigs">
+	<meta name="description" content="cryto is a beautiful website template designed for bitcoin crypto currency mining and exchange websites.">
+	<meta name='og:image' content="{% static 'home/images/home/ogg.png' %}">
+	<!-- For IE -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<!-- For Resposive Device -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Portfolio Management System</title>
+
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" sizes="56x56" href="{% static 'home/images/fav-icon/icon.png' %}">
+
+	<!-- Main style sheet -->
+	<link rel="stylesheet" type="text/css" href="{% static 'home/css/style.css' %}">
+	<!-- responsive style sheet -->
+	<link rel="stylesheet" type="text/css" href="{% static 'home/css/responsive.css' %}">
+	<!-- Color Css -->
+	<link rel="stylesheet" type="text/css" href="{% static 'home/css/color-one.css' %}">
+
+	<!-- Fix Internet Explorer -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<script src="vendor/html5shiv.js"></script>
+		<script src="vendor/respond.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<div class="main-page-wrapper">
+
+
+		<!-- ********************** Loading Transition ************************ -->
+		<div id="loader-wrapper">
+			<div id="loader"></div>
+		</div>
+
+		<div class="html-top-content">
+			<!-- ********************** Theme Top Banne & Header ************************ -->
+			<div class="theme-top-section">
+				<!-- ^^^^^^^^^^^^^^^^^ Theme Menu ^^^^^^^^^^^^^^^ -->
+				<header class="theme-main-menu">
+					<div class="container">
+						<div class="menu-wrapper clearfix">
+							<div class="logo">
+								<a href="{% url 'home' %}">
+									<!-- <img src="{% static 'home/images/logo/logo.png' %}" alt="Logo"> -->
+									<h3>Logo Placeholder</h3>
+								</a>
+							</div>
+							
+							<ul class="right-widget celarfix">
+								<li class="login-button"><a href="{% url 'account_login' %}">Login <i class="flaticon-right-thin"></i></a></li>
+							</ul> <!-- /.right-widget -->
+
+							<!-- Navigation -->
+								<nav class="navbar navbar-expand-lg" id="mega-menu-holder">
+									<div class="container">
+										<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+											<i class="fa fa-bars" aria-hidden="true"></i>
+										</button>
+										<div class="collapse navbar-collapse" id="navbarResponsive">
+											<ul class="navbar-nav">
+												<li class="nav-item">
+													<a class="nav-link js-scroll-trigger" href="#features">Feature</a>
+												</li>
+												<li class="nav-item">
+													<a class="nav-link js-scroll-trigger" href="#services">Services</a>
+												</li>
+												<li class="nav-item">
+													<a class="nav-link js-scroll-trigger" href="#apps-review">Apps Review</a>
+												</li>
+												<li class="nav-item">
+													<a class="nav-link js-scroll-trigger" href="#progress">Work Progress</a>
+												</li>
+												<li class="nav-item">
+													<a class="nav-link js-scroll-trigger" href="#contact">Contact us</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</nav>
+						</div> <!-- /.menu-wrapper -->
+					</div> <!-- /.container -->
+				</header> <!-- /.theme-main-menu -->
+
+
+				<!-- ^^^^^^^^^^^^^^^^^ Theme Banner ^^^^^^^^^^^^^^^ -->
+				<div id="theme-banner" class="theme-banner-one">
+					<img src="{% static 'home/images/home/k.png' %}" alt="" class="illustration">
+					<img src="{% static 'home/images/icon/1.png' %}" alt="" class="icon-shape-one">
+					<img src="{% static 'home/images/icon/2.png' %}" alt="" class="icon-shape-two">
+					<img src="{% static 'home/images/icon/3.png' %}" alt="" class="icon-shape-three">
+					<div class="container">
+						<div class="main-text-wrapper">
+							<h1>Portfolio <br>Management System</h1>
+							<p>A revolutionary digital solution for managing your portfolio.</p>
+							<ul class="button-group clearfix">
+								<li><a href="#features">Explore</a></li>
+								<li>
+									<div class="btn-group">
+										<a href="{% url 'account_login' %}" class="download-button">Let's Get Started &nbsp; &#10230;</a>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="container">
+						<div class="stock-market-price">
+							<div id="market-rate">
+								<div class="item">
+									<div class="main-wrapper">
+										<div class="amount">43,815.09</div>
+										<h6 class="title">Sensex</h6>
+										<div class="current-info range-down">
+											<i class="icon flaticon-down-caret"></i>
+											<span class="rate">-67.09</span>
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="main-wrapper">
+										<div class="amount">12,859.05</div>
+										<h6 class="title">Nifty</h6>
+										<div class="current-info range-up">
+											<i class="icon flaticon-up-carret"></i>
+											<span class="rate">+87.35</span>
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="main-wrapper">
+										<div class="amount">50,260.00</div>
+										<h6 class="title">Gold</h6>
+										<div class="current-info range-up">
+											<i class="icon flaticon-up-carret"></i>
+											<span class="rate">+268</span>
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="main-wrapper">
+										<div class="amount">62,260.00</div>
+										<h6 class="title">Silver</h6>
+										<div class="current-info range-up">
+											<i class="icon flaticon-up-carret"></i>
+											<span class="rate">+750</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div> <!-- /.stock-market-price -->
+					</div>
+				</div> <!-- /.theme-banner-one -->
+			</div> <!-- /.theme-top-section -->
+
+
+			<!--
+			=====================================================
+				Our Feature
+			=====================================================
+			-->
+			<div class="our-features-one" id="features">
+				<div class="container">
+					<div class="theme-title">
+						<h2>The Largest & Best <span>System</span> <br>for Managing your Portfolio</h2>
+					</div>
+
+					<div class="row">
+						<div class="col-md-4 col-xs-12">
+							<div class="single-feature">
+								<div class="icon-box">
+									<img src="{% static 'home/images/icon/5.png' %}" alt="" class="primary-icon">
+								</div>
+								<h3>Feature 1</h3>
+								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+							</div> <!-- /.single-feature -->
+						</div> <!-- /.col- -->
+						<div class="col-md-4 col-xs-12">
+							<div class="single-feature border-fix">
+								<div class="icon-box">
+									<img src="{% static 'home/images/icon/6.png' %}" alt="" class="primary-icon">
+								</div>
+								<h3>Feature 2</h3>
+								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+							</div> <!-- /.single-feature -->
+						</div> <!-- /.col- -->
+						<div class="col-md-4 col-xs-12">
+							<div class="single-feature">
+								<div class="icon-box">
+									<img src="{% static 'home/images/icon/7.png' %}" alt="" class="primary-icon">
+								</div>
+								<h3>Feature 3</h3>
+								<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+							</div> <!-- /.single-feature -->
+						</div> <!-- /.col- -->
+					</div> <!-- /.row -->
+				</div> <!-- /.container -->
+			</div> <!-- /.our-features -->
+
+
+			<!--
+			=====================================================
+				Our Feature Two
+			=====================================================
+			-->
+			<div class="our-feature-two" id="services">
+				<div class="container">
+					<div class="row single-block">
+						<div class="col-lg-6">
+							<div class="text">
+								<div class="number">01</div>
+								<h2 class="title"><span>Portfolio Management</span> our core focus</h2>
+								<p>Managing portfolio should be simple, that's why we provide user dashboard for easy management of portfolio.</p>
+								<a href="#" class="learn-more">Learn More <i class="flaticon-right-thin"></i></a>
+							</div> <!-- /.text -->
+						</div> <!-- /.col- -->
+						<div class="col-lg-6 img-box"><div><img src="{% static 'home/images/shape/1.png' %}" alt=""></div></div>
+					</div> <!-- /.row -->
+
+					<div class="row single-block">
+						<div class="col-lg-6 order-lg-last">
+							<div class="text">
+								<div class="number">02</div>
+								<h2 class="title"><span>Portfolio Analysis</span> makes simplified</h2>
+								<p>Portfolio without analysis is of no use! That's why we provide Portfolio Insights in few clicks.</p>
+								<a href="#" class="learn-more">Learn More <i class="flaticon-right-thin"></i></a>
+							</div> <!-- /.text -->
+						</div> <!-- /.col- -->
+						<div class="col-lg-6 order-lg-first img-box"><div><img src="{% static 'home/images/shape/1.1.png' %}" alt=""></div></div>
+					</div> <!-- /.row -->
+
+					<div class="row single-block">
+						<div class="col-lg-6">
+							<div class="text">
+								<div class="number">03</div>
+								<h2 class="title"><span>Smart Recommendations</span> with transparency</h2>
+								<p>We provide Machine Learning and Traditional Algorithmic based recommendations for your portfolio with transparent backtest reports.</p>
+								<a href="#" class="learn-more">Learn More <i class="flaticon-right-thin"></i></a>
+							</div> <!-- /.text -->
+						</div> <!-- /.col- -->
+						<div class="col-lg-6 img-box"><div><img src="{% static 'home/images/shape/2.png' %}" alt=""></div></div>
+					</div> <!-- /.row -->
+
+					<div class="row single-block">
+						<div class="col-lg-6 order-lg-last">
+							<div class="text">
+								<div class="number">04</div>
+								<h2 class="title"><span>Risk Analysis</span> with no efforts</h2>
+								<p>Recommendations without analysing user's risk makes no sense, that's why analysing user's risk is our first priority.</p>
+								<a href="#" class="learn-more">Learn More <i class="flaticon-right-thin"></i></a>
+							</div> <!-- /.text -->
+						</div> <!-- /.col- -->
+						<div class="col-lg-6 order-lg-first img-box"><div><img src="{% static 'home/images/shape/1.1.png' %}" alt=""></div></div>
+					</div> <!-- /.row -->
+				</div> <!-- /.container -->
+			</div> <!-- /.our-feature-two -->
+
+
+			<!--
+			=====================================================
+				Apps Overview
+			=====================================================
+			-->
+			<div class="apps-overview color-one" id="apps-review">
+				<div class="overlay-bg" style="background-image:url({% static 'home/images/home/bg2.png' %});">
+					<div class="container">
+						<div class="inner-wrapper">
+							<img src="{% static 'home/images/home/s8.png' %}" alt="" class="s8-mockup" data-aos="fade-down" data-aos-duration="2500">
+							<img src="{% static 'home/images/home/x.png' %}" alt="" class="x-mockup" data-aos="fade-up" data-aos-duration="2500">
+							<div class="row">
+								<div class="col-lg-5 offset-lg-7">
+									<div class="text">
+										<h3>don’t miss our apps</h3>
+										<h2>Mobile Application for Faster Access.</h2>
+										<h6>Now you can control dashboard from the mobile!</h6>
+										<p>Our apps will be available soon at your fingertips on your mobile. Our Development Team is committed to build apps for you and it will be available soon ...</p>
+										<ul class="button-group">
+											<li><a href="#"><i class="flaticon-apple"></i> Apple Store</a></li>
+											<li><a href="#"><img src="{% static 'home/images/icon/playstore.png' %}" alt=""> Google Play</a></li>
+										</ul>
+									</div> <!-- /.text -->
+								</div>
+							</div>
+						</div> <!-- /.inner-wrapper -->
+					</div>
+				</div> <!-- /.overlay-bg -->
+			</div> <!-- /.apps-overview -->
+
+
+			<!--
+			=====================================================
+				Theme Counter
+			=====================================================
+			-->
+			<div class="theme-counter">
+				<div class="container">
+					<div class="bg-image">
+						<div class="row theme-title">
+							<div class="col-lg-6 order-lg-last">
+								<h2><span>Fastest</span> Growing Global Network.</h2>
+							</div>
+							<div class="col-lg-6 order-lg-first">
+								<p>We’re the fastest growing portfolio management system with strong community & security. Check our info with numbers.</p>
+							</div>
+						</div>
+
+						<div class="counter-wrapper">
+							<div class="row">
+								<div class="col-sm-4">
+									<h2 class="number"><span class="timer" data-from="0" data-to="120" data-speed="1200" data-refresh-interval="5">0</span>K</h2>
+									<p>Global Customers</p>
+								</div>
+								<div class="col-sm-4">
+									<h2 class="number"><span class="timer" data-from="0" data-to="36" data-speed="1200" data-refresh-interval="5">0</span></h2>
+									<p>Portfolio Managed</p>
+								</div>
+								<div class="col-sm-4">
+									<h2 class="number"><span class="timer" data-from="0" data-to="98" data-speed="1200" data-refresh-interval="5">0</span>%</h2>
+									<p>Recommendations Success Rate</p>
+								</div>
+							</div>
+						</div> <!-- /.counter-wrapper -->
+					</div> <!-- /.bg-image -->
+				</div> <!-- /.container -->
+			</div> <!-- /.theme-counter -->
+
+
+			<!--
+			=====================================================
+				Our Work Progress
+			=====================================================
+			-->
+			<div class="our-work-progress bg-color" id="progress">
+				<div class="main-wrapper clearfix">
+					<div class="section-title-wrapper clearfix">
+						<div class="theme-title">
+							<div class="upper-heading">Solutions</div>
+							<h2><span>Work</span> Process & Solutions.</h2>
+							<p>Follow few simple steps and manage your portfolio easily.</p>
+						</div>
+					</div> <!-- /.section-title-wrapper -->
+					<div class="progress-slider-wrapper">
+						<div class="progress-slider">
+							<div class="item">
+								<div class="inner-block">
+									<div class="icon"><img src="{% static 'home/images/icon/11.png' %}" alt=""></div>
+									<h3>Create Account with Email</h3>
+									<p>Create your own account or login with social accounts.</p>
+									<div class="num">1</div>
+								</div> <!-- /.inner-block -->
+							</div>
+							<div class="item">
+								<div class="inner-block">
+									<div class="icon"><img src="{% static 'home/images/icon/12.png' %}" alt=""></div>
+									<h3>Fill the Questionnaire</h3>
+									<p>Answer the questions for analysing your risk profile.</p>
+									<div class="num">2</div>
+								</div> <!-- /.inner-block -->
+							</div>
+							<div class="item">
+								<div class="inner-block">
+									<div class="icon"><img src="{% static 'home/images/icon/13.png' %}" alt=""></div>
+									<h3>Create your Portfolio</h3>
+									<p>Create a new portfolio or upload existing one.</p>
+									<div class="num">3</div>
+								</div> <!-- /.inner-block -->
+							</div>
+							<div class="item">
+								<div class="inner-block">
+									<div class="icon"><img src="{% static 'home/images/icon/11.png' %}" alt=""></div>
+									<h3>Analyze Portfolio</h3>
+									<p>Check portfolio insights tab for understanding the portfolio.</p>
+									<div class="num">4</div>
+								</div> <!-- /.inner-block -->
+							</div>
+							<div class="item">
+								<div class="inner-block">
+									<div class="icon"><img src="{% static 'home/images/icon/12.png' %}" alt=""></div>
+									<h3>Check our Recommendations</h3>
+									<p>Check recommendations and update your portfolio.</p>
+									<div class="num">5</div>
+								</div> <!-- /.inner-block -->
+							</div>
+						</div> <!-- /.progress-slider -->
+					</div> <!-- /.progress-slider-wrapper -->
+				</div> <!-- /.main-wrapper -->
+			</div> <!-- /.our-work-progress -->
+
+
+			<!--
+			=====================================================
+				Testimonial Section
+			=====================================================
+			-->
+			<div class="testimonial-section">
+				<div class="container">
+					<div class="theme-title text-center">
+						<div class="upper-heading">Testimonials</div>
+						<h2>Our Client <span>Testimonials</span></h2>
+					</div>
+
+					<div class="testimonial-slider">
+						<div class="item">
+							<div class="single-block clearfix">
+								<div class="img-block"><img src="{% static 'home/images/home/1.jpg' %}" alt=""></div>
+								<div class="text">
+									<h3 class="name">Rashed Kabir</h3>
+									<span>CEO, Creativegigs</span>
+									<p>“Success is making our clients succeed. Nothing else matters how we work.”</p>
+									<img src="{% static 'home/images/home/sign.png' %}" alt="" class="sign">
+								</div> <!-- /.text -->
+							</div> <!-- /.single-block -->
+						</div>
+						<div class="item">
+							<div class="single-block clearfix">
+								<div class="img-block"><img src="{% static 'home/images/home/2.jpg' %}" alt=""></div>
+								<div class="text">
+									<h3 class="name">Jannatul Fa.</h3>
+									<span>MD. Tourisom Group</span>
+									<p>“Success is making our clients succeed. Nothing else matters how we work.”</p>
+									<img src="{% static 'home/images/home/sign.png' %}" alt="" class="sign">
+								</div> <!-- /.text -->
+							</div> <!-- /.single-block -->
+						</div>
+						<div class="item">
+							<div class="single-block clearfix">
+								<div class="img-block"><img src="{% static 'home/images/home/1.jpg' %}" alt=""></div>
+								<div class="text">
+									<h3 class="name">Rashed Kabir</h3>
+									<span>CEO, Creativegigs</span>
+									<p>“Success is making our clients succeed. Nothing else matters how we work.”</p>
+									<img src="{% static 'home/images/home/sign.png' %}" alt="" class="sign">
+								</div> <!-- /.text -->
+							</div> <!-- /.single-block -->
+						</div>
+						<div class="item">
+							<div class="single-block clearfix">
+								<div class="img-block"><img src="{% static 'home/images/home/2.jpg' %}" alt=""></div>
+								<div class="text">
+									<h3 class="name">Jannatul Fa.</h3>
+									<span>MD. Tourisom Group</span>
+									<p>“Success is making our clients succeed. Nothing else matters how we work.”</p>
+									<img src="{% static 'home/images/home/sign.png' %}" alt="" class="sign">
+								</div> <!-- /.text -->
+							</div> <!-- /.single-block -->
+						</div>
+						<div class="item">
+							<div class="single-block clearfix">
+								<div class="img-block"><img src="{% static 'home/images/home/1.jpg' %}" alt=""></div>
+								<div class="text">
+									<h3 class="name">Rashed Kabir</h3>
+									<span>CEO, Creativegigs</span>
+									<p>“Success is making our clients succeed. Nothing else matters how we work.”</p>
+									<img src="{% static 'home/images/home/sign.png' %}" alt="" class="sign">
+								</div> <!-- /.text -->
+							</div> <!-- /.single-block -->
+						</div>
+						<div class="item">
+							<div class="single-block clearfix">
+								<div class="img-block"><img src="{% static 'home/images/home/2.jpg' %}" alt=""></div>
+								<div class="text">
+									<h3 class="name">Jannatul Fa.</h3>
+									<span>MD. Tourisom Group</span>
+									<p>“Success is making our clients succeed. Nothing else matters how we work.”</p>
+									<img src="{% static 'home/images/home/sign.png' %}" alt="" class="sign">
+								</div> <!-- /.text -->
+							</div> <!-- /.single-block -->
+						</div>
+					</div> <!-- /.testimonial-slider -->
+				</div> <!-- /.container -->
+			</div> <!-- /.testimonial-section -->
+
+
+			<!-- 
+			=============================================
+				Contact Us One
+			============================================== 
+			-->
+			<div class="contact-us-one" id="contact">
+				<div class="overlay">
+					<div class="container">
+						<div class="theme-title text-center">
+							<h2>Get In Touch</h2>
+							<p>Send your requests/queries and we will get back to you with solutions soon</p>
+						</div>
+
+						<form action="#" class="form-validation" autocomplete="off">
+							<div class="row">
+								<div class="col-md-6">
+									<label>First Name*</label>
+									<input type="text" placeholder="First Name" name="firstName">
+								</div>
+								<div class="col-md-6">
+									<label>Last Name*</label>
+									<input type="text" placeholder="Last Name" name="lastName">
+								</div>
+								<div class="col-md-6">
+									<label>Email*</label>
+									<input type="email" placeholder="Email Address" name="email">
+								</div>
+								<div class="col-md-6">
+									<label>Phone</label>
+									<input type="text" placeholder="Phone Number" name="phone">
+								</div>
+								<div class="col-12">
+									<label>I would like to discuss*</label>
+									<input type="text" name="message">
+								</div>
+							</div>
+							<button>Send Message</button>
+						</form>
+
+						<!--Contact Form Validation Markup -->
+						<!-- Contact alert -->
+						<div class="alert-wrapper" id="alert-success">
+							<div id="success">
+								<button class="closeAlert"><i class="fa fa-times" aria-hidden="true"></i></button>
+									<div class="wrapper">
+										<p>Your message was sent successfully.</p>
+									</div>
+								</div>
+							</div> <!-- End of .alert_wrapper -->
+							<div class="alert-wrapper" id="alert-error">
+									<div id="error">
+											<button class="closeAlert"><i class="fa fa-times" aria-hidden="true"></i></button>
+											<div class="wrapper">
+													<p>Sorry!Something Went Wrong.</p>
+											</div>
+									</div>
+							</div> <!-- End of .alert_wrapper -->
+					</div>
+				</div> <!-- /.overlay -->
+			</div> <!-- /.contact-us-one -->
+
+
+			<!--
+			=====================================================
+				Partner Slider
+			=====================================================
+			-->
+			<div class="partner-section">
+				<div class="container">
+					<div class="partner-slider">
+						<div class="item"><a href="#"><img src="{% static 'home/images/logo/p-1.png' %}" alt=""></a></div>
+						<div class="item"><a href="#"><img src="{% static 'home/images/logo/p-2.png' %}" alt=""></a></div>
+						<div class="item"><a href="#"><img src="{% static 'home/images/logo/p-3.png' %}" alt=""></a></div>
+						<div class="item"><a href="#"><img src="{% static 'home/images/logo/p-4.png' %}" alt=""></a></div>
+						<div class="item"><a href="#"><img src="{% static 'home/images/logo/p-5.png' %}" alt=""></a></div>
+					</div>
+				</div>
+			</div>
+
+
+			<!--
+			=====================================================
+				Footer 
+			=====================================================
+			-->
+			<footer class="theme-footer">
+				<div class="container">
+					<div class="inner-wrapper">
+						<div class="top-footer-data-wrapper">
+							<div class="row">
+								<div class="col-lg-4 col-sm-6 footer-logo">
+									<div class="logo">
+										<a href="{% url 'home' %}">
+											{% comment %} <img src="{% static 'home/images/logo/logo.png' %}" alt="Logo"> {% endcomment %}
+											<h3>Logo Placeholder</h3>
+										</a>
+									</div>
+									<a href="mailto:contact@pms.com" class="email">contact@pms.com</a>
+									<a href="tel:+91xxxxxxxxxx" class="mobile">+91-xxxxx-xxxxx</a>
+								</div> <!-- /.footer-logo -->
+								<div class="col-lg-2 col-sm-6 footer-list">
+									<h4 class="title">Quick Links</h4>
+									<ul>
+										<li><a href="#progress">How it Works</a></li>
+										<li><a href="#contact">Report Bug</a></li>
+										<li><a href="#">Pricing</a></li>
+									</ul>
+								</div> <!-- /.footer-list -->
+								<div class="col-lg-3 col-sm-6 footer-list">
+									<h4 class="title">About Us</h4>
+									<ul>
+										<li><a href="#">Team</a></li>
+										<li><a href="#">Testimonials</a></li>
+									</ul>
+								</div> <!-- /.footer-list -->
+								<div class="col-lg-3 col-sm-6 footer-list">
+									<h4 class="title">Get Started</h4>
+									<ul>
+										<li><a href="{% url 'account_login' %}">Login</a></li>
+										<li><a href="#">Terms & Conditions</a></li>
+										<li><a href="#">Privacy Policy</a></li>
+									</ul>
+								</div> <!-- /.footer-list -->
+							</div> <!-- /.row -->
+						</div> <!-- /.top-footer-data-wrapper -->
+
+						<div class="bottom-footer clearfix">
+							<p class="copyright">&copy; 2020 <a href="{% url 'home' %}">Company</a> All Right Reserved</p>
+							<ul>
+								<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+							</ul>
+						</div> <!-- /.bottom-footer -->
+					</div>
+				</div> <!-- /.container -->
+			</footer>
+
+		</div> <!-- /.html-top-content -->
+
+		<!-- Scroll Top Button -->
+		<button class="scroll-top tran3s color-one-bg">
+			<i class="fa fa-long-arrow-up" aria-hidden="true"></i>
+		</button>
+
+		<!-- ### Js File ### -->
+		<!-- jQuery -->
+		<script src="{% static 'home/vendor/jquery.2.2.3.min.js' %}"></script>
+		<!-- Popper js -->
+		<script src="{% static 'home/vendor/popper.js/popper.min.js' %}"></script>
+		<!-- Bootstrap JS -->
+		<script src="{% static 'home/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+		<!-- ## Vendor js ## -->
+		<!-- Plugin JavaScript -->
+		<script src="{% static 'home/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+		<!-- Language Stitcher -->
+		<script src="{% static 'home/vendor/language-switcher/jquery.polyglot.language.switcher.js' %}"></script>
+		<!-- js count to -->
+		<script src="{% static 'home/vendor/jquery.appear.js' %}"></script>
+		<script src="{% static 'home/vendor/jquery.countTo.js' %}"></script>
+		<!-- Fancybox -->
+		<script src="{% static 'home/vendor/fancybox/dist/jquery.fancybox.min.js' %}"></script>
+		<!-- owl Carousel -->
+		<script src="{% static 'home/vendor/owl-carousel/owl.carousel.min.js' %}"></script>
+		<!-- AOS js -->
+		<script src="{% static 'home/vendor/aos-next/dist/aos.js' %}"></script>
+		<!-- Theme js -->
+		<script src="{% static 'home/js/theme.js' %}"></script>
+
+	</div> <!-- /.main-page-wrapper -->
+</body>
+</html>

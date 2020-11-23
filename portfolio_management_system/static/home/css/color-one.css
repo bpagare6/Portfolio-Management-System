@@ -1,0 +1,28 @@
+.theme-banner-one .main-text-wrapper .button-group>li:last-child .dropdown-toggle,#mega-menu-holder .navbar-toggler {
+	background: #02d4b5;
+}
+.scroll-top,.theme-banner-one .main-text-wrapper .button-group>li:last-child .download-button,
+.theme-banner-one .main-text-wrapper .button-group>li:last-child .dropdown-menu a,
+.theme-banner-one .main-text-wrapper .play-buttton:hover,#mega-menu-holder ul> li> a:before,
+.theme-main-menu .right-widget .login-button a:hover,.testimonial-section .owl-theme .owl-dots .owl-dot.active span,
+.testimonial-section .owl-theme .owl-dots .owl-dot:hover span,.contact-us-one form button,
+.theme-pagination ul li a:hover,.theme-pagination ul li.active a,
+.theme-main-sidebar .sidebar-tags ul li a:hover,.blog-details .comment-area .leave-comment form button {background:#01daba;}
+
+.testimonial-section .owl-theme .owl-dots .owl-dot.active span,
+.testimonial-section .owl-theme .owl-dots .owl-dot:hover span,.theme-pagination ul li a:hover,.theme-pagination ul li.active a,
+.theme-main-sidebar .sidebar-tags ul li a:hover {border-color:#01daba;}
+
+.theme-banner-one .main-text-wrapper .play-buttton,#mega-menu-holder ul> li:hover> a,#mega-menu-holder ul> li> a.active,
+.theme-main-menu .right-widget .login-button a i,#mega-menu-holder ul.dropdown li:hover>a,
+.theme-title span,.our-feature-two .text .title span,.our-feature-two .text .learn-more:hover,
+.theme-footer .top-footer-data-wrapper .footer-list ul li a:hover,.theme-inner-banner ul li a,
+.blog-grid-style .single-blog-post .date a:hover,.blog-grid-style .single-blog-post .title a:hover,
+.blog-grid-style .single-blog-post .share-meta li a:hover, .blog-grid-style .single-blog-post .share-meta li:hover button,
+.single-blog-post .share-meta li.share-option .share-icon li a:hover,.theme-main-sidebar .sidebar-newsletter form button:hover,
+.theme-main-sidebar .sidebar-categories ul li a:hover,.theme-main-sidebar .sidebar-trending-post .single-trending-post .post h6 a:hover,
+.blog-details .tag-option ul li a:hover,.blog-details .comment-area .comment-section .comment button:hover {color: #01daba;}
+
+
+
+::-webkit-scrollbar-thumb { background: #01daba; }

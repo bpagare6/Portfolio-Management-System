@@ -1,0 +1,483 @@
+:root {
+    --forny-p1: 0.25rem; /* 4px */
+    --forny-p2: 0.5rem; /* 8px */
+    --forny-p3: 0.75rem; /* 12px */
+    --forny-p4: 1rem; /* 16px */
+    --forny-p5: 1.25rem; /* 20px */
+    --forny-p6: 1.5rem; /* 24px */
+    --forny-p8: 2rem; /* 32px */
+    --forny-p10: 2.5rem; /* 40px */
+    --forny-text-xs: 0.75rem; /* 12px */
+    --forny-text-sm: 0.875rem; /* 12px */
+    --forny-text-md: 1rem; /* 16px */
+    --forny-form-width: 26rem;
+    --forny-color-facebook: hsla(221, 40%, 47%, 1);
+    --forny-color-google: hsla(4, 69%, 53%, 1);
+    --forny-color-twitter: hsla(195, 100%, 60%, 1);
+    --forny-form-control-border: 1px solid red;
+    --forny-form-control-padding: 4px;
+    --forny-shadow-color: black;
+    --forny-shadow: 0 3px 6px var(--forny-shadow-color);
+
+    --forny-red-100: hsla(0, 100%, 94%, 1);
+    --forny-red-500: hsla(4, 69%, 53%, 1);
+
+    --forny-danger-100: hsla(0, 100%, 94%, 1);
+    --forny-danger-500: hsla(4, 69%, 53%, 1);
+
+    --forny-color-success-100: hsla(152, 68%, 96%, 1);
+    --forny-color-text: black;
+    --forny-color-header: var(--forny-color-text);
+
+    --forny-color-accent-500: red;
+}
+
+.forny-container .text-xs {
+    font-size: 0.75rem;
+    font-size: var(--forny-text-xs);
+}
+
+.forny-container .text-sm {
+    font-size: 0.875rem;
+    font-size: var(--forny-text-sm);
+}
+
+.forny-container .text-md {
+    font-size: 1rem;
+    font-size: var(--forny-text-md);
+}
+
+.forny-container .cursor-pointer {
+    cursor: pointer;
+}
+
+.forny-container .pt-1 {
+    padding-top: 0.25rem !important;
+    padding-top: var(--forny-p1) !important;
+}
+.forny-container .pt-2 {
+    padding-top: 0.5rem !important;
+    padding-top: var(--forny-p2) !important;
+}
+.forny-container .pt-4 {
+    padding-top: 1rem !important;
+    padding-top: var(--forny-p4) !important;
+}
+.forny-container .pt-10 {
+    padding-top: 2.5rem !important;
+    padding-top: var(--forny-p10) !important;
+}
+
+.forny-container .pb-1 {
+    padding-bottom: 0.25rem !important;
+    padding-bottom: var(--forny-p1) !important;
+}
+.forny-container .pb-2 {
+    padding-bottom: 0.5rem !important;
+    padding-bottom: var(--forny-p2) !important;
+}
+.forny-container .pb-4 {
+    padding-bottom: 1rem !important;
+    padding-bottom: var(--forny-p4) !important;
+}
+.forny-container .pb-10 {
+    padding-bottom: 2.5rem !important;
+    padding-bottom: var(--forny-p10) !important;
+}
+
+.forny-container .mr-1 {
+    margin-right: 0.25rem !important;
+    margin-right: var(--forny-p1) !important;
+}
+.forny-container .mr-2 {
+    margin-right: 0.5rem !important;
+    margin-right: var(--forny-p2) !important;
+}
+.forny-container .mr-4 {
+    margin-right: 1rem !important;
+    margin-right: var(--forny-p4) !important;
+}
+.forny-container .mr-6 {
+    margin-right: 1.5rem !important;
+    margin-right: var(--forny-p6) !important;
+}
+.forny-container .mr-10 {
+    margin-right: 2.5rem !important;
+    margin-right: var(--forny-p10) !important;
+}
+
+.forny-container .mb-1 {
+    margin-bottom: 0.25rem !important;
+    margin-bottom: var(--forny-p1) !important;
+}
+.forny-container .mb-2 {
+    margin-bottom: 0.5rem !important;
+    margin-bottom: var(--forny-p2) !important;
+}
+.forny-container .mb-4 {
+    margin-bottom: 1rem !important;
+    margin-bottom: var(--forny-p4) !important;
+}
+.forny-container .mb-5 {
+    margin-bottom: 1.25rem !important;
+    margin-bottom: var(--forny-p5) !important;
+}
+.forny-container .mb-6 {
+    margin-bottom: 1.5rem !important;
+    margin-bottom: var(--forny-p6) !important;
+}
+.forny-container .mb-8 {
+    margin-bottom: 2rem !important;
+    margin-bottom: var(--forny-p8) !important;
+}
+.forny-container .mb-10 {
+    margin-bottom: 2.5rem !important;
+    margin-bottom: var(--forny-p10) !important;
+}
+
+.forny-container .mt-1 {
+    margin-top: 0.25rem !important;
+    margin-top: var(--forny-p1) !important;
+}
+.forny-container .mt-2 {
+    margin-top: 0.5rem !important;
+    margin-top: var(--forny-p2) !important;
+}
+.forny-container .mt-4 {
+    margin-top: 1rem !important;
+    margin-top: var(--forny-p4) !important;
+}
+.forny-container .mt-5 {
+    margin-top: 1.25rem !important;
+    margin-top: var(--forny-p5) !important;
+}
+.forny-container .mt-6 {
+    margin-top: 1.5rem !important;
+    margin-top: var(--forny-p6) !important;
+}
+.forny-container .mt-10 {
+    margin-top: 2.5rem !important;
+    margin-top: var(--forny-p10) !important;
+}
+
+.forny-container .border-r-0 {
+    border-right-width: 0 !important;
+}
+
+.forny-container .btn-social {
+    color: white;
+    border: 0;
+}
+
+.forny-container .btn-flat {
+    padding: 0 !important;
+}
+
+.forny-container .btn-facebook {
+    background: hsla(221, 40%, 47%, 1);
+    background: var(--forny-color-facebook);
+}
+.forny-container .btn-facebook:hover {
+    background: hsla(221, 40%, 40%, 1);
+}
+
+.forny-container .btn-google {
+    background: hsla(4, 69%, 53%, 1);
+    background: var(--forny-color-google);
+}
+.forny-container .btn-google:hover {
+    background: hsla(4, 59%, 47%, 1);
+}
+
+.forny-container .btn-twitter {
+    background: hsla(195, 100%, 60%, 1);
+    background: var(--forny-color-twitter);
+}
+.forny-container .btn-twitter:hover {
+    background: hsla(195, 78%, 54%, 1);
+}
+
+.forny-form .btn.btn-primary {
+    border: 0;
+    background-color: red;
+    background-color: var(--forny-color-accent-500);
+}
+
+.forny-form .btn.btn-primary:hover {
+    background-color: var(--forny-color-accent-700);
+}
+
+.forny-container .text-facebook {
+    color: hsla(221, 40%, 47%, 1);
+    color: var(--forny-color-facebook);
+}
+
+.forny-container .text-google {
+    color: hsla(4, 69%, 53%, 1);
+    color: var(--forny-color-google);
+}
+
+.forny-container .text-twitter {
+    color: hsla(195, 100%, 60%, 1);
+    color: var(--forny-color-twitter);
+}
+
+.forny-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: var(--forny-font-family);
+    color: black;
+    color: var(--forny-color-text);
+}
+
+.forny-container a {
+    color: var(--forny-link-color);
+}
+
+.forny-form {
+    margin: 0 auto;
+}
+
+.forny-form h4 {
+    color: black;
+    color: var(--forny-color-header);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    margin-bottom: var(--forny-p4);
+}
+
+.forny-form .forny-logo {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    margin-bottom: var(--forny-p10);
+}
+
+.forny-form .form-control {
+    height: auto;
+    border: 1px solid red;
+    border: var(--forny-form-control-border);
+    padding: 4px;
+    padding: var(--forny-form-control-padding);
+    border-radius: var(--forny-form-control-radius);
+    box-shadow: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+
+.forny-form .input-group-prepend .input-group-text,
+.forny-form .input-group-append .input-group-text {
+    border: 1px solid red;
+    border: var(--forny-form-control-border);
+    padding: 4px;
+    padding: var(--forny-form-control-padding);
+    border-radius: var(--forny-form-control-radius);
+    text-align: center;
+    display: inline-block;
+    min-width: 48px;
+}
+
+.forny-form .input-group-prepend .input-group-text svg,
+.forny-form .input-group-append .input-group-text svg {
+    fill: currentColor;
+}
+
+.forny-form .input-group .input-group-prepend + .form-control {
+    border-left: 0 !important;
+    padding-left: 0.25rem;
+    padding-left: var(--forny-p1);
+}
+
+.forny-form .input-group .input-group-append + .form-control {
+    border-right: 0;
+    padding-right: 0.25rem;
+    padding-right: var(--forny-p1);
+}
+
+.forny-container .alert-danger {
+    background-color: hsla(0, 100%, 94%, 1);
+    background-color: var(--forny-danger-100);
+    color: hsla(4, 69%, 53%, 1);
+    color: var(--forny-danger-500);
+}
+
+.forny-container .has-error .form-control,
+.forny-container .has-error .input-group-append .input-group-text,
+.forny-container .has-error .input-group-prepend .input-group-text {
+    border-color: hsla(4, 69%, 53%, 1);
+    border-color: var(--forny-danger-500);
+    outline-color: hsla(4, 69%, 53%, 1);
+    outline-color: var(--forny-danger-500);
+    box-shadow: none;
+}
+
+.forny-container .has-error .form-control,
+.forny-container .has-error .input-group-prepend .input-group-text {
+    color: hsla(4, 69%, 53%, 1);
+    color: var(--forny-danger-500);
+}
+
+.forny-inner {
+    /* min-height: 100vh; */
+    display: flex;
+    flex-direction: column;
+}
+
+.forny-form {
+    margin: auto;
+}
+
+@media (min-width: 768px) {
+    .forny-inner {
+        height: auto;
+        width: 26rem;
+        width: var(--forny-form-width);
+    }
+
+    .forny-form {
+        width: 26rem;
+        width: var(--forny-form-width);
+    }
+}
+
+.forny-container .has-error {
+    background: hsla(0, 100%, 94%, 1);
+    background: var(--forny-danger-100);
+}
+
+.forny-container .has-error .form-control::-webkit-input-placeholder {
+    color: hsla(4, 69%, 53%, 1);
+    color: var(--forny-danger-500);
+}
+
+.forny-container .has-error .form-control::-moz-placeholder {
+    color: hsla(4, 69%, 53%, 1);
+    color: var(--forny-danger-500);
+}
+
+.forny-container .has-error .form-control:-ms-input-placeholder {
+    color: hsla(4, 69%, 53%, 1);
+    color: var(--forny-danger-500);
+}
+
+.forny-container .has-error .form-control::-ms-input-placeholder {
+    color: hsla(4, 69%, 53%, 1);
+    color: var(--forny-danger-500);
+}
+
+.forny-container .has-error .form-control::placeholder {
+    color: hsla(4, 69%, 53%, 1);
+    color: var(--forny-danger-500);
+}
+
+.forny-container .has-error .form-control,
+.forny-container .has-error .input-group-text,
+.forny-container .has-error input:-webkit-autofill,
+.forny-container .has-error input:-webkit-autofill:hover,
+.forny-container .has-error input:-webkit-autofill:focus,
+.forny-container .has-error input:-webkit-autofill:active {
+    box-shadow: 0 0 0 30px hsla(0, 100%, 94%, 1) inset !important;
+    box-shadow: 0 0 0 30px var(--forny-danger-100) inset !important;
+    border-color: hsla(4, 69%, 53%, 1);
+    border-color: var(--forny-danger-500);
+    color: hsla(4, 69%, 53%, 1);
+    color: var(--forny-danger-500);
+}
+
+.forny-container .is-valid,
+.forny-container .is-valid input:-webkit-autofill,
+.forny-container .is-valid input:-webkit-autofill:hover,
+.forny-container .is-valid input:-webkit-autofill:focus,
+.forny-container .is-valid input:-webkit-autofill:active {
+    background-color: hsla(152, 68%, 96%, 1);
+    background-color: var(--forny-color-success-100);
+    box-shadow: 0 0 0 30px hsla(152, 68%, 96%, 1) inset !important;
+    box-shadow: 0 0 0 30px var(--forny-color-success-100) inset !important;
+}
+
+.forny-form .form-group.focused:not(.has-error) {
+    background: white;
+    border-color: var(--forny-color-text-100);
+}
+
+.forny-form .form-control,
+.forny-form .input-group-text {
+    color: black;
+    color: var(--forny-color-text);
+    background: transparent;
+}
+
+.forny-form .form-control::-webkit-input-placeholder {
+    color: black;
+    color: var(--forny-color-text);
+}
+
+.forny-form .form-control::-moz-placeholder {
+    color: black;
+    color: var(--forny-color-text);
+}
+
+.forny-form .form-control:-ms-input-placeholder {
+    color: black;
+    color: var(--forny-color-text);
+}
+
+.forny-form .form-control::-ms-input-placeholder {
+    color: black;
+    color: var(--forny-color-text);
+}
+
+.forny-form .form-control::placeholder {
+    color: black;
+    color: var(--forny-color-text);
+}
+
+.forny-container
+    .custom-control-input:checked
+    ~ .custom-control-label::before {
+    border-color: red;
+    border-color: var(--forny-color-accent-500);
+    background-color: red;
+    background-color: var(--forny-color-accent-500);
+}
+
+/* INPUT ADDONS */
+
+.forny-form .form-group .input-group-append .input-group-text {
+    padding-left: 0.5rem;
+    padding-left: var(--forny-p2);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-left: 0 !important;
+}
+
+.forny-form .form-group .input-group-append .input-group-text:hover {
+    color: red;
+    color: var(--forny-color-accent-500);
+}
+
+.forny-form .input-group-prepend .input-group-text {
+    padding-right: 0.5rem;
+    padding-right: var(--forny-p2);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 0 !important;
+}
+
+/* ALERTS */
+
+.forny-container .alert {
+    margin-bottom: 1rem;
+    margin-bottom: var(--forny-p4);
+}
+
+.forny-container .password-field .form-control {
+    border-right: 0 !important;
+}
+
+.forny-container .btn-icon {
+    margin-right: 8px;
+}
