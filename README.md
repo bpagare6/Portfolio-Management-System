@@ -18,13 +18,10 @@ Design and create a portfolio management system which aims to :
 
 ## Few Web Pages Screenshots
 ![](./images/Home-Page.png)
-*Home Page*
 
 ![](./images/Login-Page.png)
-*Login Page*
 
 ![](./images/Signup-Page.png)
-*Sign Up Page*
 
 ## Using Project Locally
 1. Clone the repository `git clone https://github.com/bpagare6/Portfolio-Management-System.git`
