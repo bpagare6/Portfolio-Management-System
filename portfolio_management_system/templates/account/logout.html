@@ -1,21 +1,48 @@
-{% extends "account/base.html" %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Authentication forms">
+  <meta name="author" content="Arasari Studio">
+  <title>Logout | Portfolio Management System</title>
+  <link href="{% static 'account/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'account/css/common.css' %}" rel="stylesheet">    
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&amp;display=swap" rel="stylesheet">
+  <link href="{% static 'account/css/theme-03.css' %}" rel="stylesheet">
+</head>
+<body>
+  <div class="forny-container">
+    <div class="forny-inner">
+      <div class="forny-form">
+        <div class="mb-8 text-center forny-logo">
+          <!-- <img src="{% static 'account/img/logo-03.svg' %}"> -->
+          <h3>Logo Placeholder</h3>
+        </div>
+        <div class="text-center">
+          <h4>Logout from account</h4>
+          <p class="mb-10">Are you sure, you want to sign out?</p>
+        </div>
+        <form method="POST" action="{% url 'account_logout' %}">
+          {% csrf_token %}
+          <div>
+            <button class="primaryAction btn btn-primary btn-block" type="submit">Yes, Sign Out</button>
+          </div>
+        </form>
+        <div class="line mt-6 mb-6 text-center">
+          <span>or</span>
+        </div>
+        <div class="text-center">
+          <p>Take me <a href="javascript:history.back()">Back</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-{% load i18n %}
-
-{% block head_title %}{% trans "Sign Out" %}{% endblock %}
-
-{% block content %}
-<h1>{% trans "Sign Out" %}</h1>
-
-<p>{% trans 'Are you sure you want to sign out?' %}</p>
-
-<form method="post" action="{% url 'account_logout' %}">
-  {% csrf_token %}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
-  {% endif %}
-  <button type="submit">{% trans 'Sign Out' %}</button>
-</form>
-
-
-{% endblock %}
+  <script src="{% static 'account/js/jquery.min.js' %}"></script>
+  <script src="{% static 'account/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'account/js/main.js' %}"></script>
+  <script src="{% static 'account/js/demo.js' %}"></script>
+</body>
+</html>

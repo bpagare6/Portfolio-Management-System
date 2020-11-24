@@ -56,7 +56,9 @@
 							</div>
 							
 							<ul class="right-widget celarfix">
+								{% if not user.is_authenticated %}
 								<li class="login-button"><a href="{% url 'account_login' %}">Login <i class="flaticon-right-thin"></i></a></li>
+								{% endif %}
 							</ul> <!-- /.right-widget -->
 
 							<!-- Navigation -->
@@ -80,8 +82,16 @@
 													<a class="nav-link js-scroll-trigger" href="#progress">Work Progress</a>
 												</li>
 												<li class="nav-item">
+													<a class="nav-link js-scroll-trigger" href="#team">Team</a>
+												</li>
+												<li class="nav-item">
 													<a class="nav-link js-scroll-trigger" href="#contact">Contact us</a>
 												</li>
+												{% if user.is_authenticated %}
+												<li class="nav-item">
+													<a class="nav-link js-scroll-trigger" href="{% url 'home' %}">Dashboard</a>
+												</li>
+												{% endif %}
 											</ul>
 										</div>
 									</div>
@@ -397,84 +407,57 @@
 
 			<!--
 			=====================================================
-				Testimonial Section
+				Team Section
 			=====================================================
 			-->
-			<div class="testimonial-section">
+			<div class="our-team" id="team">
 				<div class="container">
 					<div class="theme-title text-center">
-						<div class="upper-heading">Testimonials</div>
-						<h2>Our Client <span>Testimonials</span></h2>
+						<h2>Our Development <span>Team</span></h2>
 					</div>
-
-					<div class="testimonial-slider">
-						<div class="item">
+					<div class="row text-center">
+						<div class="col">
 							<div class="single-block clearfix">
 								<div class="img-block"><img src="{% static 'home/images/home/1.jpg' %}" alt=""></div>
 								<div class="text">
-									<h3 class="name">Rashed Kabir</h3>
-									<span>CEO, Creativegigs</span>
-									<p>“Success is making our clients succeed. Nothing else matters how we work.”</p>
-									<img src="{% static 'home/images/home/sign.png' %}" alt="" class="sign">
+									<h3 class="name">Bhushan Pagare</h3>
+									<a href="https://linkedin.com/in/bpagare6"><i class="fa fa-linkedin-square" style="font-size:24px"></i></a>
+									<a href="https://github.com/bpagare6"><i class="fa fa-github" style="font-size:24px;color:black;"></i></a>
+									<a href="https://bpagare6.github.io"><i class="fa fa-globe" style="font-size:24px;color:black;"></i></a>
 								</div> <!-- /.text -->
 							</div> <!-- /.single-block -->
 						</div>
-						<div class="item">
-							<div class="single-block clearfix">
-								<div class="img-block"><img src="{% static 'home/images/home/2.jpg' %}" alt=""></div>
-								<div class="text">
-									<h3 class="name">Jannatul Fa.</h3>
-									<span>MD. Tourisom Group</span>
-									<p>“Success is making our clients succeed. Nothing else matters how we work.”</p>
-									<img src="{% static 'home/images/home/sign.png' %}" alt="" class="sign">
-								</div> <!-- /.text -->
-							</div> <!-- /.single-block -->
-						</div>
-						<div class="item">
+						<div class="col">
 							<div class="single-block clearfix">
 								<div class="img-block"><img src="{% static 'home/images/home/1.jpg' %}" alt=""></div>
 								<div class="text">
-									<h3 class="name">Rashed Kabir</h3>
-									<span>CEO, Creativegigs</span>
-									<p>“Success is making our clients succeed. Nothing else matters how we work.”</p>
-									<img src="{% static 'home/images/home/sign.png' %}" alt="" class="sign">
+									<h3 class="name">Purvesh Jain</h3>
+									<a href="https://linkedin.com/in/purvesh-jain-035727155/"><i class="fa fa-linkedin-square" style="font-size:24px"></i></a>
+									<a href="https://github.com/purvesh314"><i class="fa fa-github" style="font-size:24px;color:black;"></i></a>
 								</div> <!-- /.text -->
 							</div> <!-- /.single-block -->
 						</div>
-						<div class="item">
-							<div class="single-block clearfix">
-								<div class="img-block"><img src="{% static 'home/images/home/2.jpg' %}" alt=""></div>
-								<div class="text">
-									<h3 class="name">Jannatul Fa.</h3>
-									<span>MD. Tourisom Group</span>
-									<p>“Success is making our clients succeed. Nothing else matters how we work.”</p>
-									<img src="{% static 'home/images/home/sign.png' %}" alt="" class="sign">
-								</div> <!-- /.text -->
-							</div> <!-- /.single-block -->
-						</div>
-						<div class="item">
+						<div class="col">
 							<div class="single-block clearfix">
 								<div class="img-block"><img src="{% static 'home/images/home/1.jpg' %}" alt=""></div>
 								<div class="text">
-									<h3 class="name">Rashed Kabir</h3>
-									<span>CEO, Creativegigs</span>
-									<p>“Success is making our clients succeed. Nothing else matters how we work.”</p>
-									<img src="{% static 'home/images/home/sign.png' %}" alt="" class="sign">
+									<h3 class="name">Manav Peshwani</h3>
+									<a href="https://linkedin.com/in/manavpeshwani"><i class="fa fa-linkedin-square" style="font-size:24px"></i></a>
+									<a href="https://github.com/manavpeshwani"><i class="fa fa-github" style="font-size:24px;color:black;"></i></a>
 								</div> <!-- /.text -->
 							</div> <!-- /.single-block -->
 						</div>
-						<div class="item">
+						<div class="col">
 							<div class="single-block clearfix">
-								<div class="img-block"><img src="{% static 'home/images/home/2.jpg' %}" alt=""></div>
+								<div class="img-block"><img src="{% static 'home/images/home/1.jpg' %}" alt=""></div>
 								<div class="text">
-									<h3 class="name">Jannatul Fa.</h3>
-									<span>MD. Tourisom Group</span>
-									<p>“Success is making our clients succeed. Nothing else matters how we work.”</p>
-									<img src="{% static 'home/images/home/sign.png' %}" alt="" class="sign">
+									<h3 class="name">Nipun Khivansara</h3>
+									<a href="https://linkedin.com/in/nipun-khivansara-152bb8199/"><i class="fa fa-linkedin-square" style="font-size:24px"></i></a>
+									<a href="https://github.com/Nipunkhivansara"><i class="fa fa-github" style="font-size:24px;color:black;"></i></a>
 								</div> <!-- /.text -->
 							</div> <!-- /.single-block -->
 						</div>
-					</div> <!-- /.testimonial-slider -->
+					</div>
 				</div> <!-- /.container -->
 			</div> <!-- /.testimonial-section -->
 
@@ -597,7 +580,11 @@
 								<div class="col-lg-3 col-sm-6 footer-list">
 									<h4 class="title">Get Started</h4>
 									<ul>
+										{% if user.is_authenticated %}
+										<li><a href="{% url 'home' %}">Dashboard</a></li>
+										{% else %}
 										<li><a href="{% url 'account_login' %}">Login</a></li>
+										{% endif %}
 										<li><a href="#">Terms & Conditions</a></li>
 										<li><a href="#">Privacy Policy</a></li>
 									</ul>
