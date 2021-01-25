@@ -46,6 +46,7 @@ INSTALLED_APPS = [
 
     # Our Apps
     'home',
+    'dashboard',
 
     # Third Party - 1) All Auth
     'allauth',

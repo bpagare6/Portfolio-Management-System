@@ -1,0 +1,1104 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+    
+<!-- Mirrored from themesbrand.com/minible/layouts/horizontal/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jan 2021 11:50:25 GMT -->
+<head>
+
+        <meta charset="utf-8" />
+        <title>Dashboard | Minible - Responsive Bootstrap 4 Admin Dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+        <meta content="Themesbrand" name="author" />
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="{% static 'dashboard/images/favicon.ico' %}">
+
+        <!-- Bootstrap Css -->
+        <link href="{% static 'dashboard/css/bootstrap.min.css' %}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+        <!-- Icons Css -->
+        <link href="{% static 'dashboard/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
+        <!-- App Css-->
+        <link href="{% static 'dashboard/css/app.min.css' %}" id="app-style" rel="stylesheet" type="text/css" />
+
+        <script src="https://www.chartjs.org/dist/2.9.4/Chart.min.js"></script>
+
+        <style>
+            .tabcontent {
+                display: none;
+                padding: 6px 12px;
+                border: 1px solid #ccc;
+                border-top: none;
+            }
+            .tabcontent {
+                animation: fadeEffect 1s; /* Fading effect takes 1 second */
+            }
+            /* Go from zero to full opacity */
+            @keyframes fadeEffect {
+                from {opacity: 0;}
+                to {opacity: 1;}
+            }
+        </style>
+
+    </head>
+
+    <!-- <body> -->
+    <body data-layout="horizontal" data-topbar="colored">
+
+        <!-- Begin page -->
+        <div id="layout-wrapper">
+
+            
+            
+
+            <header id="page-topbar">
+                <div class="navbar-header">
+                    <div class="d-flex">
+                        <!-- LOGO -->
+                        <div class="navbar-brand-box">
+                            <a href="index.html" class="logo logo-dark">
+                                <span class="logo-sm">
+                                    <img src="{% static 'dashboard/images/logo-sm.png' %}" alt="" height="30">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="{% static 'dashboard/images/logo-dark.png' %}" alt="" height="30">
+                                </span>
+                            </a>
+
+                            <a href="index.html" class="logo logo-light">
+                                <span class="logo-sm">
+                                    <img src="{% static 'dashboard/images/logo-sm.png' %}" alt="" height="30">
+                                </span>
+                                <span class="logo-lg">
+                                    <img src="{% static 'dashboard/images/logo-light.png' %}" alt="" height="30">
+                                </span>
+                            </a>
+                        </div>
+
+                        <button type="button" class="btn btn-sm px-3 font-size-16 d-lg-none header-item waves-effect waves-light" data-toggle="collapse" data-target="#topnav-menu-content">
+                            <i class="fa fa-fw fa-bars"></i>
+                        </button>
+
+                    </div>
+
+                    <div class="d-flex">
+
+                        <div class="dropdown d-inline-block d-lg-none ml-2">
+                            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="uil-search"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
+                                aria-labelledby="page-header-search-dropdown">
+                    
+                                <form class="p-3">
+                                    <div class="form-group m-0">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="dropdown d-none d-lg-inline-block ml-1">
+                            <button type="button" class="btn header-item noti-icon waves-effect" data-toggle="fullscreen">
+                                <i class="uil-minus-path"></i>
+                            </button>
+                        </div>
+
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="uil-bell"></i>
+                                <span class="badge badge-danger badge-pill">3</span>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
+                                aria-labelledby="page-header-notifications-dropdown">
+                                <div class="p-3">
+                                    <div class="row align-items-center">
+                                        <div class="col">
+                                            <h5 class="m-0 font-size-16"> Notifications </h5>
+                                        </div>
+                                        <div class="col-auto">
+                                            <a href="#!" class="small"> Mark all as read</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-simplebar style="max-height: 230px;">
+                                    <a href="#" class="text-reset notification-item">
+                                        <div class="media">
+                                            <div class="avatar-xs mr-3">
+                                                <span class="avatar-title bg-primary rounded-circle font-size-16">
+                                                    <i class="uil-shopping-basket"></i>
+                                                </span>
+                                            </div>
+                                            <div class="media-body">
+                                                <h6 class="mt-0 mb-1">Your order is placed</h6>
+                                                <div class="font-size-12 text-muted">
+                                                    <p class="mb-1">If several languages coalesce the grammar</p>
+                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 3 min ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="text-reset notification-item">
+                                        <div class="media">
+                                            <img src="{% static 'dashboard/images/users/avatar-3.jpg' %}"
+                                                class="mr-3 rounded-circle avatar-xs" alt="user-pic">
+                                            <div class="media-body">
+                                                <h6 class="mt-0 mb-1">James Lemire</h6>
+                                                <div class="font-size-12 text-muted">
+                                                    <p class="mb-1">It will seem like simplified English.</p>
+                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 1 hours ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="text-reset notification-item">
+                                        <div class="media">
+                                            <div class="avatar-xs mr-3">
+                                                <span class="avatar-title bg-success rounded-circle font-size-16">
+                                                    <i class="uil-truck"></i>
+                                                </span>
+                                            </div>
+                                            <div class="media-body">
+                                                <h6 class="mt-0 mb-1">Your item is shipped</h6>
+                                                <div class="font-size-12 text-muted">
+                                                    <p class="mb-1">If several languages coalesce the grammar</p>
+                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 3 min ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <a href="#" class="text-reset notification-item">
+                                        <div class="media">
+                                            <img src="{% static 'dashboard/images/users/avatar-4.jpg' %}"
+                                                class="mr-3 rounded-circle avatar-xs" alt="user-pic">
+                                            <div class="media-body">
+                                                <h6 class="mt-0 mb-1">Salena Layfield</h6>
+                                                <div class="font-size-12 text-muted">
+                                                    <p class="mb-1">As a skeptical Cambridge friend of mine occidental.</p>
+                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> 1 hours ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="p-2 border-top">
+                                    <a class="btn btn-sm btn-link font-size-14 btn-block text-center" href="javascript:void(0)">
+                                        <i class="uil-arrow-circle-right mr-1"></i> View More..
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="dropdown d-inline-block">
+                            <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img class="rounded-circle header-profile-user" src="{% static 'dashboard/images/users/avatar-4.jpg' %}"
+                                    alt="Header Avatar">
+                                <span class="d-none d-xl-inline-block ml-1 font-weight-medium font-size-18">{{ user.username }}</span>
+                                <i class="uil-angle-down d-none d-xl-inline-block font-size-18"></i>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <!-- item-->
+                                <a class="dropdown-item" href="#"><i class="uil uil-user-circle font-size-18 align-middle text-muted mr-1"></i> <span class="align-middle">View Profile</span></a>
+                                <a class="dropdown-item" href="#"><i class="uil uil-wallet font-size-18 align-middle mr-1 text-muted"></i> <span class="align-middle">My Wallet</span></a>
+                                <a class="dropdown-item d-block" href="#"><i class="uil uil-cog font-size-18 align-middle mr-1 text-muted"></i> <span class="align-middle">Settings</span> <span class="badge badge-soft-success badge-pill mt-1 ml-2">03</span></a>
+                                <a class="dropdown-item" href="#"><i class="uil uil-lock-alt font-size-18 align-middle mr-1 text-muted"></i> <span class="align-middle">Lock screen</span></a>
+                                <a class="dropdown-item" href="{% url 'account_logout' %}"><i class="uil uil-sign-out-alt font-size-18 align-middle mr-1 text-muted"></i> <span class="align-middle">Sign out</span></a>
+                            </div>
+                        </div>
+            
+                    </div>
+                </div>
+                <div class="container-fluid">
+                    <div class="topnav">
+                        <nav class="navbar navbar-light navbar-expand-lg topnav-menu">    
+                            <div class="collapse navbar-collapse" id="topnav-menu-content">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" onclick="openTab(event, 'investment-overview')" id="defaultOpen">
+                                            <i class="uil-dollar-alt mr-2"></i> Investment Overview
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" onclick="openTab(event, 'portfolio-insights')">
+                                            <i class="uil-briefcase-alt mr-2"></i> Portfolio Insights
+                                        </a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" onclick="openTab(event, 'recommendations')">
+                                            <i class="uil-thumbs-up mr-2"></i> Recommendations
+                                        </a>
+                                    </li>
+     
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+    
+            <!-- Investment Overview -->
+            <div id="investment-overview" class="tabcontent">
+                <div class="main-content">
+                    <div class="page-content">
+                        <div class="container-fluid">
+
+                            <!-- start page title -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="page-title-box d-flex align-items-center justify-content-between">
+                                        <h4 class="mb-0">Dashboard</h4>
+
+                                        <div class="page-title-right">
+                                            <ol class="breadcrumb m-0">
+                                                <li class="breadcrumb-item"><a href="javascript: void(0);">Minible</a></li>
+                                                <li class="breadcrumb-item">Dashboard</li>
+                                                <li class="breadcrumb-item active">Investment Overview</li>
+                                            </ol>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end page title -->
+
+                            <div class="row">
+                                <div class="col-md-6 col-xl-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="float-right mt-2">
+                                                <div id="total-investment-chart"></div>
+                                            </div>
+                                            <div>
+                                                <h4 class="mb-1 mt-1">₹ <span data-plugin="counterup">1,28,000</span></h4>
+                                                <p class="text-muted mb-0">Total Investment</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- end col-->
+
+                                <div class="col-md-6 col-xl-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="float-right mt-2">
+                                                <div id="current-value-chart"></div>
+                                            </div>
+                                            <div>
+                                                <h4 class="mb-1 mt-1">₹ <span data-plugin="counterup">1,46,440</span></h4>
+                                                <p class="text-muted mb-0">Current Value</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- end col-->
+
+                                <div class="col-md-6 col-xl-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="float-right mt-2">
+                                                <div id="pnl-chart"></div>
+                                            </div>
+                                            <div>
+                                                <h4 class="mb-1 mt-1" style="color:#34c38f;">+ ₹ <span data-plugin="counterup">18,440</span></h4>
+                                                <p class="text-muted mb-0">Unrealized P&L</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- end col-->
+
+                                <div class="col-md-6 col-xl-3">
+
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="float-right mt-2">
+                                                <div id="growth-chart"></div>
+                                            </div>
+                                            <div>
+                                                <h4 class="mb-1 mt-1" style="color:#34c38f;">+ <span data-plugin="counterup">14.36</span>%</h4>
+                                                <p class="text-muted mb-0">Growth</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- end col-->
+                            </div> <!-- end row-->
+
+                            <div class="row">
+                                <div class="col-md-4 col-sm-12">
+                                    <div class="card">
+                                        <div id="donut-chart">
+                                            <div
+                                                style="font-size: 16px; width: 100%; height: 40px; position: absolute; top: 50%; left: -8.5%; margin-top: -10px; line-height:19px; text-align: center; z-index: 999999999999999">
+                                                Account
+                                            </div>
+                                            <canvas id="account-chart-container" style="display: block; height: 300px; padding: 20px;" class="chartjs-render-monitor"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-12">
+                                    <div class="card">
+                                        <div id="donut-chart">
+                                            <div
+                                                style="font-size: 16px; width: 100%; height: 40px; position: absolute; top: 50%; left: -11.5%; margin-top: -10px; line-height:19px; text-align: center; z-index: 999999999999999">
+                                                Sectors
+                                            </div>
+                                            <canvas id="sector-chart-container" style="display: block; height: 300px; padding: 20px;" class="chartjs-render-monitor"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-12">
+                                    <div class="card">
+                                        <div id="donut-chart">
+                                            <div
+                                                style="font-size: 16px; width: 100%; height: 40px; position: absolute; top: 50%; left: -14%; margin-top: -10px; line-height:19px; text-align: center; z-index: 999999999999999">
+                                                Stocks
+                                            </div>
+                                            <canvas id="stock-chart-container" style="display: block; height: 300px; padding: 20px;" class="chartjs-render-monitor"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- end row-->
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="card-title mb-4">Your Holdings</h4>
+                                            <div class="table-responsive">
+                                                <table class="table table-centered table-nowrap mb-0">
+                                                    <thead class="thead-light">
+                                                        <tr>
+                                                            <th>Company Name</th>
+                                                            <th>Number of Shares</th>
+                                                            <th>Average Cost</th>
+                                                            <th>Last Trading Price (LTP)</th>
+                                                            <th>Invested Amount</th>
+                                                            <th>P&L</th>
+                                                            <th>Net Change</th>
+                                                            <th>Details</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-body font-weight-bold">ENDURANCE</td>
+                                                            <td>10</td>
+                                                            <td>₹ 952.95</td>
+                                                            <td>₹ 1,095.85</td>
+                                                            <td>₹ 9,529.50</td>
+                                                            <td style="color:#34c38f;">+ ₹ 1,429.00</td>
+                                                            <td style="color:#34c38f;">+ 15.00 %</td>
+                                                            <td>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                                                    View Details
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="text-body font-weight-bold">LAURUSLABS</td>
+                                                            <td>15</td>
+                                                            <td>₹ 1,023.30</td>
+                                                            <td>₹ 1,191.55</td>
+                                                            <td>₹ 15,349.50</td>
+                                                            <td style="color:#34c38f;">+ ₹ 2,523.75</td>
+                                                            <td style="color:#34c38f;">+ 16.44 %</td>
+                                                            <td>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                                                    View Details
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="text-body font-weight-bold">SBIN</td>
+                                                            <td>60</td>
+                                                            <td>₹ 199.55</td>
+                                                            <td>₹ 215.75</td>
+                                                            <td>₹ 11,973.00</td>
+                                                            <td style="color:#34c38f;">+ ₹ 972.00</td>
+                                                            <td style="color:#34c38f;">+ 8.12 %</td>
+                                                            <td>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                                                    View Details
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="text-body font-weight-bold">FIEMIND</td>
+                                                            <td>20</td>
+                                                            <td>₹ 426.14</td>
+                                                            <td>₹ 617.75</td>
+                                                            <td>₹ 8,522.90</td>
+                                                            <td style="color:#34c38f;">+ ₹ 3,832.10</td>
+                                                            <td style="color:#34c38f;">+ 44.96 %</td>
+                                                            <td>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                                                    View Details
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="text-body font-weight-bold">PAGEIND6</td>
+                                                            <td>1</td>
+                                                            <td>₹ 19,446.00</td>
+                                                            <td>₹ 20,087.50</td>
+                                                            <td>₹ 19,446.00</td>
+                                                            <td style="color:#34c38f;">+ ₹ 641.50</td>
+                                                            <td style="color:#34c38f;">+ 3.30 %</td>
+                                                            <td>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                                                    View Details
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="text-body font-weight-bold">SUPRAJIT</td>
+                                                            <td>50</td>
+                                                            <td>₹ 169.85</td>
+                                                            <td>₹ 188.75</td>
+                                                            <td>₹ 8,492.50</td>
+                                                            <td style="color:#34c38f;">+ ₹ 945.00</td>
+                                                            <td style="color:#34c38f;">+ 11.13 %</td>
+                                                            <td>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                                                    View Details
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td class="text-body font-weight-bold">ENDURANCE</td>
+                                                            <td>10</td>
+                                                            <td>₹ 952.95</td>
+                                                            <td>₹ 1,095.85</td>
+                                                            <td>₹ 9,529.50</td>
+                                                            <td style="color:#34c38f;">+ ₹ 1,429.00</td>
+                                                            <td style="color:#34c38f;">+ 15.00 %</td>
+                                                            <td>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                                                    View Details
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- end table-responsive -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end row -->
+                        </div> <!-- container-fluid -->
+                    </div>
+                    <!-- End Page-content -->
+
+
+                    <footer class="footer">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <script>document.write(new Date().getFullYear())</script> © Minible.
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="text-sm-right d-none d-sm-block">
+                                        Crafted with <i class="mdi mdi-heart text-danger"></i> by <a href="https://themesbrand.com/" target="_blank" class="text-reset">Themesbrand</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+                <!-- end main content-->
+            </div>
+
+            <!-- Portfolio Insights -->
+            <div id="portfolio-insights" class="tabcontent">
+                <div class="main-content">
+                    <div class="page-content">
+                        <div class="container-fluid">
+                            <!-- start page title -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="page-title-box d-flex align-items-center justify-content-between">
+                                        <h4 class="mb-0">Dashboard</h4>
+
+                                        <div class="page-title-right">
+                                            <ol class="breadcrumb m-0">
+                                                <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
+                                                <li class="breadcrumb-item">Dashboard</li>
+                                                <li class="breadcrumb-item active">Portfolio Insights</li>
+                                            </ol>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end page title -->
+
+                            <div class="row">
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="float-right mt-2">
+                                                <div id="total-investment-chart"></div>
+                                            </div>
+                                            <div>
+                                                <h4 class="mb-1 mt-1">Beta (β) : <span data-plugin="counterup">1.28</span></h4>
+                                                <p class="text-muted">Your portfolio moves by a factor of 1.28 in the direction of market swing</p>
+                                                <p class="mb-0"><a href="#" style="padding-top: 20px;">See Calculations &nbsp;<i class="fas fa-long-arrow-alt-right"></i></a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- end col-->
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="float-right mt-2">
+                                                <div id="total-investment-chart"></div>
+                                            </div>
+                                            <div>
+                                                <h4 class="mb-1 mt-1">PE Ratio : <span data-plugin="counterup">1,694.87</span></h4>
+                                                <p class="text-muted">This is a holdings-weighted consolidated PE Ratio of all the stocks held in your portfolio</p>
+                                                <p class="mb-0"><a href="#" style="padding-top: 20px;">See Calculations &nbsp;<i class="fas fa-long-arrow-alt-right"></i></a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- end col-->
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="float-right mt-2">
+                                                <div id="total-investment-chart"></div>
+                                            </div>
+                                            <div>
+                                                <h4 class="mb-1 mt-1">Price Forecast : &nbsp;<span style="color:#34c38f;"><i class="fas fa-caret-up"></i> 1.27%</span></h4>
+                                                <p class="text-muted">According to analyst forecasts, your portfolio is estimated to grow by 1.27% by next year</p>
+                                                <p class="mb-0"><a href="#" style="padding-top: 20px;">See Forecast Report &nbsp;<i class="fas fa-long-arrow-alt-right"></i></a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- end col-->
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="float-right mt-2">
+                                                <div id="total-investment-chart"></div>
+                                            </div>
+                                            <div>
+                                                <h4 class="mb-1 mt-1">Redflags : <span style="color:#f46a6a;">2 &nbsp;<i class="fas fa-flag"></i></span></h4>
+                                                <p class="text-muted">We spotted possible redflags with 2 of the securities in your portfolio</p>
+                                                <p class="mb-0"><a href="#" style="padding-top: 20px;">See Redflags &nbsp;<i class="fas fa-long-arrow-alt-right"></i></a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- end col-->
+                            </div>
+
+                            <footer class="footer">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <script>document.write(new Date().getFullYear())</script> © Minible.
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="text-sm-right d-none d-sm-block">
+                                                Crafted with <i class="mdi mdi-heart text-danger"></i> by <a href="https://themesbrand.com/" target="_blank" class="text-reset">Themesbrand</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recommendations -->
+            <div id="recommendations" class="tabcontent">
+                <div class="main-content">
+                    <div class="page-content">
+                        <div class="container-fluid">
+                            <!-- start page title -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="page-title-box d-flex align-items-center justify-content-between">
+                                        <h4 class="mb-0">Dashboard</h4>
+
+                                        <div class="page-title-right">
+                                            <ol class="breadcrumb m-0">
+                                                <li class="breadcrumb-item"><a href="javascript: void(0);">Minible</a></li>
+                                                <li class="breadcrumb-item">Dashboard</li>
+                                                <li class="breadcrumb-item active">Recommendations</li>
+                                            </ol>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end page title -->
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="card-title mb-4">Intraday Recommendations</h4>
+                                            <div class="table-responsive">
+                                                <table class="table table-centered table-nowrap mb-0">
+                                                    <thead class="thead-light">
+                                                        <tr>
+                                                            <th>Company Name</th>
+                                                            <th>Last Trading Price (LTP)</th>
+                                                            <th>Entry</th>
+                                                            <th>Target</th>
+                                                            <th>Stop Loss</th>
+                                                            <th>Call</th>
+                                                            <th>Details</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-body font-weight-bold">ABC</td>
+                                                            <td>₹ 952.95</td>
+                                                            <td>₹ 955.85</td>
+                                                            <td>₹ 1,010.00</td>
+                                                            <td>₹ 950.50</td>
+                                                            <td class="font-weight-bold" style="color:#34c38f;">Buy</td>
+                                                            <td>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                                                    View Details
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-body font-weight-bold">XYZ</td>
+                                                            <td>₹ 1,023.30</td>
+                                                            <td>₹ 1,020.55</td>
+                                                            <td>₹ 995.50</td>
+                                                            <td>₹ 1,025.50</td>
+                                                            <td class="font-weight-bold" style="color:#f46a6a">Sell</td>
+                                                            <td>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                                                    View Details
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-body font-weight-bold">LMN</td>
+                                                            <td>₹ 314.95</td>
+                                                            <td>₹ 316.00</td>
+                                                            <td>₹ 322.50</td>
+                                                            <td>₹ 313.00</td>
+                                                            <td class="font-weight-bold" style="color:#34c38f;">Buy</td>
+                                                            <td>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                                                    View Details
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- end table-responsive -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="card-title mb-4">Short-Term Recommendations</h4>
+                                            <div class="table-responsive">
+                                                <table class="table table-centered table-nowrap mb-0">
+                                                    <thead class="thead-light">
+                                                        <tr>
+                                                            <th>Company Name</th>
+                                                            <th>Last Trading Price (LTP)</th>
+                                                            <th>Entry</th>
+                                                            <th>Target</th>
+                                                            <th>Stop Loss</th>
+                                                            <th>Call</th>
+                                                            <th>Details</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-body font-weight-bold">ABC</td>
+                                                            <td>₹ 952.95</td>
+                                                            <td>₹ 955.85</td>
+                                                            <td>₹ 1,010.00</td>
+                                                            <td>₹ 950.50</td>
+                                                            <td class="font-weight-bold" style="color:#34c38f;">Buy</td>
+                                                            <td>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                                                    View Details
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-body font-weight-bold">XYZ</td>
+                                                            <td>₹ 1,023.30</td>
+                                                            <td>₹ 1,020.55</td>
+                                                            <td>₹ 995.50</td>
+                                                            <td>₹ 1,025.50</td>
+                                                            <td class="font-weight-bold" style="color:#f46a6a">Sell</td>
+                                                            <td>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                                                    View Details
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-body font-weight-bold">LMN</td>
+                                                            <td>₹ 314.95</td>
+                                                            <td>₹ 316.00</td>
+                                                            <td>₹ 322.50</td>
+                                                            <td>₹ 313.00</td>
+                                                            <td class="font-weight-bold" style="color:#34c38f;">Buy</td>
+                                                            <td>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                                                    View Details
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- end table-responsive -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="card-title mb-4">Mid-Term Recommendations</h4>
+                                            <div class="table-responsive">
+                                                <table class="table table-centered table-nowrap mb-0">
+                                                    <thead class="thead-light">
+                                                        <tr>
+                                                            <th>Company Name</th>
+                                                            <th>Last Trading Price (LTP)</th>
+                                                            <th>Entry</th>
+                                                            <th>Target</th>
+                                                            <th>Holding Period</th>
+                                                            <th>Details</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-body font-weight-bold">ABC</td>
+                                                            <td>₹ 952.95</td>
+                                                            <td>₹ 955.85</td>
+                                                            <td>₹ 1,200.00</td>
+                                                            <td>~ 1 year</td>
+                                                            <td>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                                                    View Details
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-body font-weight-bold">XYZ</td>
+                                                            <td>₹ 1,023.30</td>
+                                                            <td>₹ 1,020.55</td>
+                                                            <td>₹ 1,300.50</td>
+                                                            <td>~ 1.5 years</td>
+                                                            <td>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                                                    View Details
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-body font-weight-bold">LMN</td>
+                                                            <td>₹ 314.95</td>
+                                                            <td>₹ 316.00</td>
+                                                            <td>₹ 557.50</td>
+                                                            <td>~ 2 years</td>
+                                                            <td>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                                                    View Details
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- end table-responsive -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h4 class="card-title mb-4">Long-Term Recommendations</h4>
+                                            <div class="table-responsive">
+                                                <table class="table table-centered table-nowrap mb-0">
+                                                    <thead class="thead-light">
+                                                        <tr>
+                                                            <th>Company Name</th>
+                                                            <th>Last Trading Price (LTP)</th>
+                                                            <th>Sales (CAGR)</th>
+                                                            <th>Net Profit (CAGR)</th>
+                                                            <th>Fundamental Strength</th>
+                                                            <th>Expected Returns (CAGR)</th>
+                                                            <th>Holding Period</th>
+                                                            <th>Details</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-body font-weight-bold">ABC</td>
+                                                            <td>₹ 952.95</td>
+                                                            <td style="color:#34c38f;">+ 28 %</td>
+                                                            <td style="color:#34c38f;">+ 23 %</td>
+                                                            <td class="font-weight-bold">Very Strong</td>
+                                                            <td class="font-weight-bold" style="color:#34c38f;">+ 17 %</td>
+                                                            <td>~ 6 to 7 years</td>
+                                                            <td>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                                                    View Details
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-body font-weight-bold">XYZ</td>
+                                                            <td>₹ 1,023.30</td>
+                                                            <td style="color:#34c38f;">+ 32 %</td>
+                                                            <td style="color:#34c38f;">+ 26 %</td>
+                                                            <td class="font-weight-bold">Strong</td>
+                                                            <td class="font-weight-bold" style="color:#34c38f;">+ 15 %</td>
+                                                            <td>~ 8 years</td>
+                                                            <td>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                                                    View Details
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-body font-weight-bold">LMN</td>
+                                                            <td>₹ 314.95</td>
+                                                            <td style="color:#34c38f;">+ 18 %</td>
+                                                            <td style="color:#34c38f;">+ 16 %</td>
+                                                            <td class="font-weight-bold">Good</td>
+                                                            <td class="font-weight-bold" style="color:#34c38f;">+ 13 %</td>
+                                                            <td>~ 5 years</td>
+                                                            <td>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                                                    View Details
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!-- end table-responsive -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end row -->
+
+                            <footer class="footer">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <script>document.write(new Date().getFullYear())</script> © Minible.
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="text-sm-right d-none d-sm-block">
+                                                Crafted with <i class="mdi mdi-heart text-danger"></i> by <a href="https://themesbrand.com/" target="_blank" class="text-reset">Themesbrand</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- END layout-wrapper -->
+
+        <!-- JAVASCRIPT -->
+        <script src="{% static 'dashboard/libs/jquery/jquery.min.js' %}"></script>
+        <script src="{% static 'dashboard/libs/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'dashboard/libs/metismenu/metisMenu.min.js' %}"></script>
+        <script src="{% static 'dashboard/libs/simplebar/simplebar.min.js' %}"></script>
+        <script src="{% static 'dashboard/libs/node-waves/waves.min.js' %}"></script>
+        <script src="{% static 'dashboard/libs/waypoints/lib/jquery.waypoints.min.js' %}"></script>
+        <script src="{% static 'dashboard/libs/jquery.counterup/jquery.counterup.min.js' %}"></script>
+
+        <!-- apexcharts -->
+        <script src="{% static 'dashboard/libs/apexcharts/apexcharts.min.js' %}"></script>
+
+        <script src="{% static 'dashboard/js/pages/dashboard.init.js' %}"></script>
+
+        <script src="{% static 'dashboard/js/app.js' %}"></script>
+
+        <script>
+            function openTab(evt, tabName) {
+                // Declare all variables
+                var i, tabcontent, tablinks;
+                // Get all elements with class="tabcontent" and hide them
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+                // Get all elements with class="tablinks" and remove the class "active"
+                tablinks = document.getElementsByClassName("nav-link");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                }
+                // Show the current tab, and add an "active" class to the button that opened the tab
+                document.getElementById(tabName).style.display = "block";
+                evt.currentTarget.className += " active";
+            }
+            document.getElementById("defaultOpen").click();
+        </script>
+
+        <!-- Donut Charts -->
+        <script>
+            function generateRandomColors(length) {
+                var colors = [];
+                for (let i = 0; i < length; i++) {
+                    var randomColor = Math.floor(Math.random()*16777215).toString(16);
+                    colors.push("#" + randomColor);
+                }
+                return colors;
+            }
+
+            var accounts = {
+                'data': [100],
+                'labels': ['equity']
+            };
+
+            var sectors = {
+                'data': [66.09, 25.10, 8.81],
+                'labels': ['Consumer', 'Health Care', 'Financials']
+            };
+
+            var stocks = {
+                'data': [21.38, 8.81, 1.96, 13.67, 7.46, 12.16],
+                'labels': ['HEROMOTOCO', 'SBIN', 'TATAMOTORS', 'PAGEIND6', 'ENDURANCE', 'LAURUSLABS']
+            };
+
+            var accountChartConfig = {
+                type: 'doughnut',
+                data: {
+                    datasets: [{
+                        data: accounts['data'],
+                        backgroundColor: generateRandomColors(accounts['data'].length),
+                    }],
+                    // These labels appear in the legend and in the tooltips when hovering different arcs
+                    labels: accounts['labels']
+                },
+                options: {
+                    responsive: true,
+                    legend: {
+                    position: 'right',
+                    },
+                    animation: {
+                    animateScale: true,
+                    animateRotate: true
+                    }
+                }
+            };
+            var sectorChartConfig = {
+                type: 'doughnut',
+                data: {
+                    datasets: [{
+                        data: sectors['data'],
+                        backgroundColor: generateRandomColors(sectors['data'].length),
+                    }],
+                    // These labels appear in the legend and in the tooltips when hovering different arcs
+                    labels: sectors['labels']
+                },
+                options: {
+                    responsive: true,
+                    legend: {
+                    position: 'right',
+                    },
+                    animation: {
+                    animateScale: true,
+                    animateRotate: true
+                    }
+                }
+            };
+            var stockChartConfig = {
+                type: 'doughnut',
+                data: {
+                    datasets: [{
+                        data: stocks['data'],
+                        backgroundColor: generateRandomColors(stocks['data'].length),
+                    }],
+                    // These labels appear in the legend and in the tooltips when hovering different arcs
+                    labels: stocks['labels']
+                },
+                options: {
+                    responsive: true,
+                    legend: {
+                    position: 'right',
+                    },
+                    animation: {
+                    animateScale: true,
+                    animateRotate: true
+                    }
+                }
+            };
+            window.onload = function() {
+                var ctx1 = document.getElementById('account-chart-container').getContext('2d');
+                window.myDoughnut1 = new Chart(ctx1, accountChartConfig);
+                var ctx2 = document.getElementById('sector-chart-container').getContext('2d');
+                window.myDoughnut2 = new Chart(ctx2, sectorChartConfig);
+                var ctx3 = document.getElementById('stock-chart-container').getContext('2d');
+                window.myDoughnut3 = new Chart(ctx3, stockChartConfig);
+            };
+        </script>
+    </body>
+
+
+<!-- Mirrored from themesbrand.com/minible/layouts/horizontal/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jan 2021 11:52:26 GMT -->
+</html>
