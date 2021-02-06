@@ -48,13 +48,14 @@ Design and create a portfolio management system which aims to :
 - [x] Login & Register Page (Logo, Footer are yet to be updated)
 - [x] Dashboard UI (Logo, Footer are yet to be updated)
 - [x] Dashboard (Investment Overview) - Backend Integration
-  - Solve issues regarding Alphavantage API request limit (using try-except)
-  - Solve issues regarding TradingView glitches
+  - [x] Some Utility Functions (Adding Stocks to Holdings, View Details on dashboard)
+  - [ ] Solve issues regarding Alphavantage API request limit (using try-except)
+  - [ ] Solve issues regarding TradingView glitches
 - [ ] Dashboard (Portfolio Insights, Recommendations) - Backend Integration
 - [ ] Risk Profile Page and Backend
-- [ ] Recommendation Backend
-- [ ] Some Utility Functions (Adding Stocks to Holdings, View Details on dashboard)
-- [ ] Database Models
+- [ ] Database Models (Under Progress)
+  - [x] Portfolio Model
+  - [x] StockHoldings Model
 
 ## Team Members
 1. Bhushan Pagare [![Linkedin](https://i.stack.imgur.com/gVE0j.png)](https://www.linkedin.com/in/bpagare6) [![GitHub](https://i.stack.imgur.com/tskMh.png)](https://github.com/bpagare6)
