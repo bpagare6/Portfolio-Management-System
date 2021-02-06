@@ -25,6 +25,8 @@ Design and create a portfolio management system which aims to :
 
 ![](./images/Investment-Overview.png)
 
+![](./images/Holdings-Details-Popup.png)
+
 ![](./images/Portfolio-Insights.png)
 
 ![](./images/Recommendation.png)
@@ -45,7 +47,10 @@ Design and create a portfolio management system which aims to :
 - [x] Home Page (Content, Images are yet to be updated)
 - [x] Login & Register Page (Logo, Footer are yet to be updated)
 - [x] Dashboard UI (Logo, Footer are yet to be updated)
-- [ ] Dashboard - Backend Integration
+- [x] Dashboard (Investment Overview) - Backend Integration
+  - Solve issues regarding Alphavantage API request limit (using try-except)
+  - Solve issues regarding TradingView glitches
+- [ ] Dashboard (Portfolio Insights, Recommendations) - Backend Integration
 - [ ] Risk Profile Page and Backend
 - [ ] Recommendation Backend
 - [ ] Some Utility Functions (Adding Stocks to Holdings, View Details on dashboard)

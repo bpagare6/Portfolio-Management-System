@@ -187,3 +187,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Custom Settings - allauth
 LOGIN_REDIRECT_URL = "/"
+
+# Alphavantage key
+ALPHAVANTAGE_KEY = str(os.getenv('ALPHAVANTAGE_KEY'))

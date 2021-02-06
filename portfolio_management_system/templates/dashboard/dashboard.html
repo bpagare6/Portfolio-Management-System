@@ -47,30 +47,19 @@
 
         <!-- Begin page -->
         <div id="layout-wrapper">
-
-            
-            
-
-            <header id="page-topbar">
+=            <header id="page-topbar">
                 <div class="navbar-header">
                     <div class="d-flex">
                         <!-- LOGO -->
                         <div class="navbar-brand-box">
-                            <a href="index.html" class="logo logo-dark">
+                            <a href="{% url 'home' %}" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="{% static 'dashboard/images/logo-sm.png' %}" alt="" height="30">
+                                    {% comment %} <img src="{% static 'dashboard/images/logo-sm.png' %}" alt="" height="30"> {% endcomment %}
+                                    <h2 style="color: white;">Logo Placeholder</h2>
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="{% static 'dashboard/images/logo-dark.png' %}" alt="" height="30">
-                                </span>
-                            </a>
-
-                            <a href="index.html" class="logo logo-light">
-                                <span class="logo-sm">
-                                    <img src="{% static 'dashboard/images/logo-sm.png' %}" alt="" height="30">
-                                </span>
-                                <span class="logo-lg">
-                                    <img src="{% static 'dashboard/images/logo-light.png' %}" alt="" height="30">
+                                    <h2 style="color: white;">Logo Placeholder</h2>
+                                    {% comment %} <img src="{% static 'dashboard/images/logo-light.png' %}" alt="" height="30"> {% endcomment %}
                                 </span>
                             </a>
                         </div>
@@ -82,7 +71,6 @@
                     </div>
 
                     <div class="d-flex">
-
                         <div class="dropdown d-inline-block d-lg-none ml-2">
                             <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -252,7 +240,6 @@
                 <div class="main-content">
                     <div class="page-content">
                         <div class="container-fluid">
-
                             <!-- start page title -->
                             <div class="row">
                                 <div class="col-12">
@@ -273,6 +260,45 @@
                             <!-- end page title -->
 
                             <div class="row">
+                                <div class="col-12">
+                                    <div class="tradingview-widget-container">
+                                        <div class="tradingview-widget-container__widget"></div>
+                                        <div class="tradingview-widget-copyright"></div>                                       
+                                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js" async>
+                                            {
+                                                "symbols": [
+                                                    {
+                                                        "proName": "FOREXCOM:SPXUSD",
+                                                        "title": "S&P 500"
+                                                    },
+                                                    {
+                                                        "proName": "FOREXCOM:NSXUSD",
+                                                        "title": "Nasdaq 100"
+                                                    },
+                                                    {
+                                                        "proName": "FX_IDC:EURUSD",
+                                                        "title": "EUR/USD"
+                                                    },
+                                                    {
+                                                        "proName": "BITSTAMP:BTCUSD",
+                                                        "title": "BTC/USD"
+                                                    },
+                                                    {
+                                                        "proName": "BITSTAMP:ETHUSD",
+                                                        "title": "ETH/USD"
+                                                    }
+                                                ],
+                                                "colorTheme": "light",
+                                                "isTransparent": false,
+                                                "showSymbolLogo": true,
+                                                "locale": "in"
+                                            }
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
                                 <div class="col-md-6 col-xl-3">
                                     <div class="card">
                                         <div class="card-body">
@@ -280,7 +306,7 @@
                                                 <div id="total-investment-chart"></div>
                                             </div>
                                             <div>
-                                                <h4 class="mb-1 mt-1">₹ <span data-plugin="counterup">1,28,000</span></h4>
+                                                <h4 class="mb-1 mt-1">$ <span data-plugin="counterup">{{ totalInvestment | floatformat:2 }}</span></h4>
                                                 <p class="text-muted mb-0">Total Investment</p>
                                             </div>
                                         </div>
@@ -294,7 +320,7 @@
                                                 <div id="current-value-chart"></div>
                                             </div>
                                             <div>
-                                                <h4 class="mb-1 mt-1">₹ <span data-plugin="counterup">1,46,440</span></h4>
+                                                <h4 class="mb-1 mt-1" id="current-value">$ <span data-plugin="counterup">Current Value</span></h4>
                                                 <p class="text-muted mb-0">Current Value</p>
                                             </div>
                                         </div>
@@ -308,7 +334,7 @@
                                                 <div id="pnl-chart"></div>
                                             </div>
                                             <div>
-                                                <h4 class="mb-1 mt-1" style="color:#34c38f;">+ ₹ <span data-plugin="counterup">18,440</span></h4>
+                                                <h4 class="mb-1 mt-1" style="color:#34c38f;" id="unrealized-pnl"><span data-plugin="counterup">Unrealized P&L</span></h4>
                                                 <p class="text-muted mb-0">Unrealized P&L</p>
                                             </div>
                                         </div>
@@ -323,7 +349,7 @@
                                                 <div id="growth-chart"></div>
                                             </div>
                                             <div>
-                                                <h4 class="mb-1 mt-1" style="color:#34c38f;">+ <span data-plugin="counterup">14.36</span>%</h4>
+                                                <h4 class="mb-1 mt-1" style="color:#34c38f;" id="growth"><span data-plugin="counterup">Growth</span> %</h4>
                                                 <p class="text-muted mb-0">Growth</p>
                                             </div>
                                         </div>
@@ -335,33 +361,24 @@
                                 <div class="col-md-4 col-sm-12">
                                     <div class="card">
                                         <div id="donut-chart">
-                                            <div
-                                                style="font-size: 16px; width: 100%; height: 40px; position: absolute; top: 50%; left: -8.5%; margin-top: -10px; line-height:19px; text-align: center; z-index: 999999999999999">
-                                                Account
-                                            </div>
                                             <canvas id="account-chart-container" style="display: block; height: 300px; padding: 20px;" class="chartjs-render-monitor"></canvas>
+                                            <div class="font-weight-bold text-center mb-4" style="font-size: 16px; z-index: 1001">Account</div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-12">
                                     <div class="card">
                                         <div id="donut-chart">
-                                            <div
-                                                style="font-size: 16px; width: 100%; height: 40px; position: absolute; top: 50%; left: -11.5%; margin-top: -10px; line-height:19px; text-align: center; z-index: 999999999999999">
-                                                Sectors
-                                            </div>
                                             <canvas id="sector-chart-container" style="display: block; height: 300px; padding: 20px;" class="chartjs-render-monitor"></canvas>
+                                            <div class="font-weight-bold text-center mb-4" style="font-size: 16px; z-index: 1001">Sectors</div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4 col-sm-12">
                                     <div class="card">
                                         <div id="donut-chart">
-                                            <div
-                                                style="font-size: 16px; width: 100%; height: 40px; position: absolute; top: 50%; left: -14%; margin-top: -10px; line-height:19px; text-align: center; z-index: 999999999999999">
-                                                Stocks
-                                            </div>
                                             <canvas id="stock-chart-container" style="display: block; height: 300px; padding: 20px;" class="chartjs-render-monitor"></canvas>
+                                            <div class="font-weight-bold text-center mb-4" style="font-size: 16px; z-index: 1001">Stocks</div>
                                         </div>
                                     </div>
                                 </div>
@@ -371,137 +388,166 @@
                                 <div class="col-lg-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="card-title mb-4">Your Holdings</h4>
+                                            <h4 class="card-title mb-4">Your Holdings
+                                            <button 
+                                                style="float: right; margin-bottom: 10px; background-color: #50a5f1; border-color: #50a5f1;" 
+                                                type="button" class="btn btn-primary btn-sm-12 btn-md-6 btn-rounded waves-effect waves-light"
+                                                data-toggle="modal" data-target="#myModal">
+                                                <i class="fa fa-plus"></i> &nbsp;Add Stock Holding
+                                            </button></h4>
+
+                                            <!-- Modal -->
+                                            <div id="myModal" class="modal fade" role="dialog">
+                                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                                    <!-- Modal content-->
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h4 class="modal-title">Add Stock to your Portfolio</h4>
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form id="add-holding-form" method="post" action="{% url 'add-holding' %}">
+                                                                {% csrf_token %}
+                                                                <div class="form-group row mb-4">
+                                                                    <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Stock Ticker :</label>
+                                                                    <div class="col-sm-9">
+                                                                        <select name="company" class="form-control select2 select2-hidden-accessible" id="company" data-select2-id="1" tabindex="-1" aria-hidden="true"></select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row mb-4">
+                                                                    <label for="example-date-input" class="col-sm-3 col-form-label">Date</label>
+                                                                    <div class="col-sm-9">
+                                                                        <input name="date" class="form-control" type="date" value="" id="example-date-input" max="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row mb-4">
+                                                                    <label for="example-date-input" class="col-sm-3 col-form-label">Number of Stocks</label>
+                                                                    <div class="col-sm-9">
+                                                                        <input name="number-stocks" class="form-control" type="number" value="0" min="0" step="1" id="number-stocks">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row mt-4 justify-content-center">
+                                                                    <button type="submit" class="btn btn-primary w-md">Submit</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             <div class="table-responsive">
-                                                <table class="table table-centered table-nowrap mb-0">
+                                                <table class="table table-centered table-nowrap mb-0" id="portfolio-table">
                                                     <thead class="thead-light">
                                                         <tr>
-                                                            <th>Company Name</th>
-                                                            <th>Number of Shares</th>
-                                                            <th>Average Cost</th>
-                                                            <th>Last Trading Price (LTP)</th>
-                                                            <th>Invested Amount</th>
-                                                            <th>P&L</th>
-                                                            <th>Net Change</th>
-                                                            <th>Details</th>
+                                                            <th class="text-center">Company Name</th>
+                                                            <th class="text-center">Number of Shares</th>
+                                                            <th class="text-center">Average Cost</th>
+                                                            <th class="text-center">Last Trading Price (LTP)</th>
+                                                            <th class="text-center">Invested Amount</th>
+                                                            <th class="text-center" class="font-weight-bold">P&L</th>
+                                                            <th class="text-center">Net Change</th>
+                                                            <th class="text-center">Details</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td class="text-body font-weight-bold">ENDURANCE</td>
-                                                            <td>10</td>
-                                                            <td>₹ 952.95</td>
-                                                            <td>₹ 1,095.85</td>
-                                                            <td>₹ 9,529.50</td>
-                                                            <td style="color:#34c38f;">+ ₹ 1,429.00</td>
-                                                            <td style="color:#34c38f;">+ 15.00 %</td>
-                                                            <td>
-                                                                <!-- Button trigger modal -->
-                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                                        {% for c in holdings %}
+                                                        <tr id="{{ c.CompanySymbol }}">
+                                                            <td class="text-body font-weight-bold">
+                                                                <div class="tradingview-widget-container">
+                                                                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-single-quote.js" async>
+                                                                        {
+                                                                            "symbol": "NASDAQ:{{c.CompanySymbol}}",
+                                                                            "width": 350,
+                                                                            "colorTheme": "light",
+                                                                            "isTransparent": true,
+                                                                            "locale": "in"
+                                                                        }
+                                                                    </script>
+                                                                </div>
+                                                            </td>
+                                                            <td class="text-center font-weight-bold" style="font-size: 20px;">{{ c.NumberShares }}</td>
+                                                            <td class="text-center font-weight-bold" style="font-size: 20px;">$ {{ c.AverageCost | floatformat:2 }}</td>
+                                                            <td class="text-center font-weight-bold" style="font-size: 20px;">LTP</td>
+                                                            <td class="text-center font-weight-bold" style="font-size: 20px;">$ {{ c.InvestmentAmount | floatformat:2 }}</td>
+                                                            <td class="text-center font-weight-bold" style="font-size: 20px;">PNL</td>
+                                                            <td class="text-center font-weight-bold" style="font-size: 20px;">Net Change</td>
+                                                            <td class="text-center">
+                                                                <button 
+                                                                    type="button" class="btn btn-primary btn-md btn-rounded waves-effect waves-light"
+                                                                    data-toggle="modal" data-target="#stockdetails-{{ c.CompanySymbol }}" onclick="getFinancials('{{ c.CompanySymbol }}')">
                                                                     View Details
                                                                 </button>
                                                             </td>
                                                         </tr>
-
-                                                        <tr>
-                                                            <td class="text-body font-weight-bold">LAURUSLABS</td>
-                                                            <td>15</td>
-                                                            <td>₹ 1,023.30</td>
-                                                            <td>₹ 1,191.55</td>
-                                                            <td>₹ 15,349.50</td>
-                                                            <td style="color:#34c38f;">+ ₹ 2,523.75</td>
-                                                            <td style="color:#34c38f;">+ 16.44 %</td>
-                                                            <td>
-                                                                <!-- Button trigger modal -->
-                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
-                                                                    View Details
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td class="text-body font-weight-bold">SBIN</td>
-                                                            <td>60</td>
-                                                            <td>₹ 199.55</td>
-                                                            <td>₹ 215.75</td>
-                                                            <td>₹ 11,973.00</td>
-                                                            <td style="color:#34c38f;">+ ₹ 972.00</td>
-                                                            <td style="color:#34c38f;">+ 8.12 %</td>
-                                                            <td>
-                                                                <!-- Button trigger modal -->
-                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
-                                                                    View Details
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td class="text-body font-weight-bold">FIEMIND</td>
-                                                            <td>20</td>
-                                                            <td>₹ 426.14</td>
-                                                            <td>₹ 617.75</td>
-                                                            <td>₹ 8,522.90</td>
-                                                            <td style="color:#34c38f;">+ ₹ 3,832.10</td>
-                                                            <td style="color:#34c38f;">+ 44.96 %</td>
-                                                            <td>
-                                                                <!-- Button trigger modal -->
-                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
-                                                                    View Details
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td class="text-body font-weight-bold">PAGEIND6</td>
-                                                            <td>1</td>
-                                                            <td>₹ 19,446.00</td>
-                                                            <td>₹ 20,087.50</td>
-                                                            <td>₹ 19,446.00</td>
-                                                            <td style="color:#34c38f;">+ ₹ 641.50</td>
-                                                            <td style="color:#34c38f;">+ 3.30 %</td>
-                                                            <td>
-                                                                <!-- Button trigger modal -->
-                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
-                                                                    View Details
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td class="text-body font-weight-bold">SUPRAJIT</td>
-                                                            <td>50</td>
-                                                            <td>₹ 169.85</td>
-                                                            <td>₹ 188.75</td>
-                                                            <td>₹ 8,492.50</td>
-                                                            <td style="color:#34c38f;">+ ₹ 945.00</td>
-                                                            <td style="color:#34c38f;">+ 11.13 %</td>
-                                                            <td>
-                                                                <!-- Button trigger modal -->
-                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
-                                                                    View Details
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td class="text-body font-weight-bold">ENDURANCE</td>
-                                                            <td>10</td>
-                                                            <td>₹ 952.95</td>
-                                                            <td>₹ 1,095.85</td>
-                                                            <td>₹ 9,529.50</td>
-                                                            <td style="color:#34c38f;">+ ₹ 1,429.00</td>
-                                                            <td style="color:#34c38f;">+ 15.00 %</td>
-                                                            <td>
-                                                                <!-- Button trigger modal -->
-                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
-                                                                    View Details
-                                                                </button>
-                                                            </td>
-                                                        </tr>
+                                                        {% endfor %}
                                                     </tbody>
                                                 </table>
                                             </div>
                                             <!-- end table-responsive -->
+
+                                            {% for c in holdings %}
+                                                <!-- Modal -->
+                                                <div id="stockdetails-{{ c.CompanySymbol }}" class="modal fade" role="dialog">
+                                                    <div class="modal-dialog modal-dialog-centered modal-xl">
+                                                        <!-- Modal content-->
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title">{{ c.CompanyName }} ({{ c.CompanySymbol }})</h4>
+                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="col-12 justify-content-center">
+                                                                    <div class="tradingview-widget-container">
+                                                                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-info.js" async>
+                                                                        {
+                                                                            "symbol": "NASDAQ:{{ c.CompanySymbol }}",
+                                                                            "width": "100%",
+                                                                            "locale": "in",
+                                                                            "colorTheme": "light",
+                                                                            "isTransparent": false
+                                                                        }
+                                                                        </script>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-12 justify-content-center">
+                                                                    <div class="tradingview-widget-container">
+                                                                        <div id="tradingview_{{ c.CompanySymbol }}"></div>
+                                                                        <div class="tradingview-widget-copyright">&nbsp;</div>
+                                                                        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                                                                        <script type="text/javascript">
+                                                                            new TradingView.widget(
+                                                                                {
+                                                                                    "width": "100%",
+                                                                                    "height": 610,
+                                                                                    "symbol": "NASDAQ:{{ c.CompanySymbol }}",
+                                                                                    "interval": "D",
+                                                                                    "timezone": "Etc/UTC",
+                                                                                    "theme": "light",
+                                                                                    "style": "1",
+                                                                                    "locale": "in",
+                                                                                    "toolbar_bg": "#f1f3f6",
+                                                                                    "enable_publishing": false,
+                                                                                    "withdateranges": true,
+                                                                                    "container_id": "tradingview_{{ c.CompanySymbol }}"
+                                                                                }
+                                                                            );
+                                                                        </script>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row" id="financials-{{ c.CompanySymbol }}">
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
                                         </div>
                                     </div>
                                 </div>
@@ -516,11 +562,11 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <script>document.write(new Date().getFullYear())</script> © Minible.
+                                    <script>document.write(new Date().getFullYear())</script> © All Rights Reserved
                                 </div>
                                 <div class="col-sm-6">
                                     <div class="text-sm-right d-none d-sm-block">
-                                        Crafted with <i class="mdi mdi-heart text-danger"></i> by <a href="https://themesbrand.com/" target="_blank" class="text-reset">Themesbrand</a>
+                                        Crafted with <i class="fas fa-heart"></i>
                                     </div>
                                 </div>
                             </div>
@@ -617,11 +663,11 @@
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <script>document.write(new Date().getFullYear())</script> © Minible.
+                                            <script>document.write(new Date().getFullYear())</script> © All Rights Reserved
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="text-sm-right d-none d-sm-block">
-                                                Crafted with <i class="mdi mdi-heart text-danger"></i> by <a href="https://themesbrand.com/" target="_blank" class="text-reset">Themesbrand</a>
+                                                Crafted with <i class="fas fa-heart"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -944,11 +990,11 @@
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <script>document.write(new Date().getFullYear())</script> © Minible.
+                                            <script>document.write(new Date().getFullYear())</script> © All Rights Reserved
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="text-sm-right d-none d-sm-block">
-                                                Crafted with <i class="mdi mdi-heart text-danger"></i> by <a href="https://themesbrand.com/" target="_blank" class="text-reset">Themesbrand</a>
+                                                Crafted with <i class="fas fa-heart"></i>
                                             </div>
                                         </div>
                                     </div>
@@ -978,6 +1024,214 @@
 
         <script src="{% static 'dashboard/js/app.js' %}"></script>
 
+        <!--  Script for Updating the LTP, PNL and Net Change data in holdings table by fetching data from backend -->
+        <script>
+            function updateData(data) {
+                stockdata = data["StockData"];
+                currentValue = parseFloat(data["CurrentValue"]).toFixed(2);
+                unrealizedPNL = parseFloat(data["UnrealizedPNL"]).toFixed(2);
+                growth = parseFloat(data["Growth"]).toFixed(2);
+                var tableRows = document.getElementById("portfolio-table").tBodies[0].rows;
+                for (var i = 0; i < tableRows.length; i++) {
+                    var tableData = tableRows[i].getElementsByTagName('td');
+                    tableData[3].innerHTML = "$ " + stockdata[tableRows[i].id]["LastTradingPrice"].toFixed(2);
+                    if (stockdata[tableRows[i].id]["PNL"] > 0) {
+                        tableData[5].style.color = "#34c38f";
+                        tableData[6].style.color = "#34c38f";
+                        tableData[5].innerHTML = "+ $ " + stockdata[tableRows[i].id]["PNL"].toFixed(2);
+                        tableData[6].innerHTML = "+ " + stockdata[tableRows[i].id]["NetChange"].toFixed(2) + " %";
+                    } else {
+                        tableData[5].style.color = "#f46a6a";
+                        tableData[6].style.color = "#f46a6a";
+                        tableData[5].innerHTML = "- $ " + Math.abs(stockdata[tableRows[i].id]["PNL"].toFixed(2));
+                        tableData[6].innerHTML = "- " + Math.abs(stockdata[tableRows[i].id]["NetChange"].toFixed(2)) + " %";
+                    }
+                }
+                var currentValueHeading = document.getElementById("current-value").getElementsByTagName("span")[0];
+                currentValueHeading.innerHTML = currentValue;
+                var unrealizedPNLHeading = document.getElementById("unrealized-pnl");
+                var growthHeading = document.getElementById("growth");
+                
+                if (unrealizedPNL > 0) {
+                    unrealizedPNLHeading.style.color = ":#34c38f";
+                    growthHeading.style.color = ":#34c38f";
+                    unrealizedPNLHeading.getElementsByTagName("span")[0].innerHTML = "+ $ " + Math.abs(unrealizedPNL);
+                    growthHeading.getElementsByTagName("span")[0].innerHTML = "+ " + Math.abs(growth);
+                } else {
+                    unrealizedPNLHeading.style.color = "#f46a6a";
+                    growthHeading.style.color = "#f46a6a";
+                    unrealizedPNLHeading.getElementsByTagName("span")[0].innerHTML = "- $ " + Math.abs(unrealizedPNL);
+                    growthHeading.getElementsByTagName("span")[0].innerHTML = "- " + Math.abs(growth);
+                }
+            }
+
+            function getUpdatedValues() {
+                $.ajax({
+                    type: "GET",
+                    url: "/update-prices",
+                    dataType: "json",
+                    success: function(data) { updateData(data); }
+                });
+            }
+
+            getUpdatedValues();
+            var callUpdateFunction = setInterval(getUpdatedValues(), 1000 * 60 * 5); // where X is your every X minutes
+        </script>
+
+        <!-- Script for showing the company's basic financial information once view details button is clicked -->
+        <script>
+            function printFinancials(symbol, data) {
+                var row = document.getElementById("financials-" + symbol);
+                var htmlcontent = `
+                    <div class="col-4">
+                        <table class='table borderless'>
+                            <tr>
+                                <td style="font-size: 16px; border-top: none;">Sector</td>
+                                <td class="font-weight-bold" style="font-size: 16px; border-top: none;">${ data['Sector'] }</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 16px; border-top: none;">Book Value</td>
+                                <td class="font-weight-bold" style="font-size: 16px; border-top: none;">${ parseFloat(data['BookValue']).toFixed(2) }</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 16px; border-top: none;">PE Ratio</td>
+                                <td class="font-weight-bold" style="font-size: 16px; border-top: none;">${ parseFloat(data['PERatio']).toFixed(2) }</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 16px; border-top: none;">PB Ratio</td>
+                                <td class="font-weight-bold" style="font-size: 16px; border-top: none;">${ parseFloat(data['PriceToBookRatio']).toFixed(2) }</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-4">
+                        <table class='table borderless'>
+                            <tr>
+                                <td style="font-size: 16px; border-top: none;">Profit Margin</td>
+                                <td class="font-weight-bold" style="font-size: 16px; border-top: none;">${ parseFloat(data['ProfitMargin']).toFixed(2) }</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 16px; border-top: none;">Operating Margin TTM</td>
+                                <td class="font-weight-bold" style="font-size: 16px; border-top: none;">${ parseFloat(data['OperatingMarginTTM']).toFixed(2) }</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 16px; border-top: none;">Return on Assets TTM</td>
+                                <td class="font-weight-bold" style="font-size: 16px; border-top: none;">${ parseFloat(data['ReturnOnAssetsTTM']).toFixed(2) }</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 16px; border-top: none;">Return on Equity TTM</td>
+                                <td class="font-weight-bold" style="font-size: 16px; border-top: none;">${ parseFloat(data['ReturnOnEquityTTM']).toFixed(2) }</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-4">
+                        <table class='table borderless'>
+                            <tr>
+                                <td style="font-size: 16px; border-top: none;">52 Week Range</td>
+                                <td class="font-weight-bold" style="font-size: 16px; border-top: none;">$ ${ parseFloat(data['52WeekLow']).toFixed(2) } - $ ${ parseFloat(data['52WeekHigh']).toFixed(2) }</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 16px; border-top: none;">Beta</td>
+                                <td class="font-weight-bold" style="font-size: 16px; border-top: none;">${ parseFloat(data['Beta']).toFixed(2) }</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 16px; border-top: none;">EV to EBITDA</td>
+                                <td class="font-weight-bold" style="font-size: 16px; border-top: none;">${ parseFloat(data['EVToEBITDA']).toFixed(2) }</td>
+                            </tr>
+                        </table>
+                    </div>
+                `;
+
+                row.innerHTML = htmlcontent;
+            }
+
+            function getFinancials(symbol) {
+                $.ajax({
+                    type: "GET",
+                    url: "/get-financials",
+                    data: {
+                        "symbol": symbol
+                    },
+                    dataType: "json",
+                    success: function(data) { printFinancials(symbol, data["financials"]); }
+                });
+            }
+        </script>
+
+        <!-- Script for submitting the form with AJAX -->
+        <script>
+            function addStockHoldingResult(data) {
+                if (data === "Success") {
+                    alert("Stock Holding successfully added to your portfolio");
+                } else {
+                    alert("Error adding the stock holding\n" + "Message: " + data);
+                }
+
+                location.reload();
+            }
+
+            $("#add-holding-form").submit(function(e) {
+                e.preventDefault(); // avoid to execute the actual submit of the form.
+                var form = $(this);
+                var url = form.attr('action');
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: form.serialize(),
+                    success: function(data) { addStockHoldingResult(data) }
+                });
+                $('#myModal').modal('toggle');
+            });
+        </script>
+
+        <!-- Script for getting the list of companies for showing it in the add new holding dropdown -->
+        <!-- This will be called only once -->
+        <script>
+            function processData(data) {
+                var datalist = document.getElementById("company");
+                for (var i = 0; i < data.length; i++) {
+                    var option = document.createElement("option");
+                    option.innerHTML = data[i][1] + " &nbsp;(" + data[i][0] + ")";
+                    datalist.append(option);
+                }
+            }
+
+            $(document).ready(function() {
+               $.ajax({
+                    type: "GET",
+                    url: "/company-list",
+                    dataType: "json",
+                    success: function(data) { processData(data["data"]); }
+                });
+            });
+        </script>
+
+        <!-- Script for getting the date value -->
+        <script>
+            function getDate() {
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth()+1; //January is 0!
+                var yyyy = today.getFullYear();
+
+                if(dd<10) {
+                    dd = '0'+dd
+                } 
+
+                if(mm<10) {
+                    mm = '0'+mm
+                } 
+
+                today = yyyy + '-' + mm + '-' + dd;
+                document.getElementById("example-date-input").value = today;
+                document.getElementById("example-date-input").max = today;
+            }
+
+            $(document).ready( function () {
+                getDate();
+            });
+        </script>
+
+        <!-- Script for working of navbar options -->
         <script>
             function openTab(evt, tabName) {
                 // Declare all variables
@@ -1015,14 +1269,18 @@
                 'labels': ['equity']
             };
 
+            var sectorsdata = {{ sectors.0 }};
+            var sectorslabels = JSON.parse('{{ sectors.1 }}'.replace(new RegExp("&"+"#"+"x27;", "g"), '"'));
             var sectors = {
-                'data': [66.09, 25.10, 8.81],
-                'labels': ['Consumer', 'Health Care', 'Financials']
+                'data': sectorsdata,
+                'labels': sectorslabels
             };
 
+            var stocksdata = {{ stocks.0 }};
+            var stockslabels = JSON.parse('{{ stocks.1 }}'.replace(new RegExp("&"+"#"+"x27;", "g"), '"'));
             var stocks = {
-                'data': [21.38, 8.81, 1.96, 13.67, 7.46, 12.16],
-                'labels': ['HEROMOTOCO', 'SBIN', 'TATAMOTORS', 'PAGEIND6', 'ENDURANCE', 'LAURUSLABS']
+                'data': stocksdata,
+                'labels': stockslabels
             };
 
             var accountChartConfig = {
