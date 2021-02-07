@@ -189,4 +189,10 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 LOGIN_REDIRECT_URL = "/"
 
 # Alphavantage key
-ALPHAVANTAGE_KEY = str(os.getenv('ALPHAVANTAGE_KEY'))
+ALPHAVANTAGE_KEY1 = str(os.getenv('ALPHAVANTAGE_KEY1'))
+ALPHAVANTAGE_KEY2 = str(os.getenv('ALPHAVANTAGE_KEY2'))
+ALPHAVANTAGE_KEY3 = str(os.getenv('ALPHAVANTAGE_KEY3'))
+ALPHAVANTAGE_KEY4 = str(os.getenv('ALPHAVANTAGE_KEY4'))
+ALPHAVANTAGE_KEY5 = str(os.getenv('ALPHAVANTAGE_KEY5'))
+ALPHAVANTAGE_KEY6 = str(os.getenv('ALPHAVANTAGE_KEY6'))
+ALPHAVANTAGE_KEY7 = str(os.getenv('ALPHAVANTAGE_KEY7'))

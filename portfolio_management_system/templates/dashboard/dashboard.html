@@ -608,8 +608,8 @@
                                                 <div id="total-investment-chart"></div>
                                             </div>
                                             <div>
-                                                <h4 class="mb-1 mt-1">Beta (β) : <span data-plugin="counterup">1.28</span></h4>
-                                                <p class="text-muted">Your portfolio moves by a factor of 1.28 in the direction of market swing</p>
+                                                <h4 class="mb-1 mt-1">Beta (β) : <span id="portfolio-beta">Beta</span></h4>
+                                                <p class="text-muted" id="portfolio-beta-text">Your portfolio moves by a factor of 0 in the direction of market swing</p>
                                                 <p class="mb-0"><a href="#" style="padding-top: 20px;">See Calculations &nbsp;<i class="fas fa-long-arrow-alt-right"></i></a></p>
                                             </div>
                                         </div>
@@ -622,7 +622,7 @@
                                                 <div id="total-investment-chart"></div>
                                             </div>
                                             <div>
-                                                <h4 class="mb-1 mt-1">PE Ratio : <span data-plugin="counterup">1,694.87</span></h4>
+                                                <h4 class="mb-1 mt-1">PE Ratio : <span id="portfolio-pe">PE</span></h4>
                                                 <p class="text-muted">This is a holdings-weighted consolidated PE Ratio of all the stocks held in your portfolio</p>
                                                 <p class="mb-0"><a href="#" style="padding-top: 20px;">See Calculations &nbsp;<i class="fas fa-long-arrow-alt-right"></i></a></p>
                                             </div>
@@ -1070,7 +1070,13 @@
                     type: "GET",
                     url: "/update-prices",
                     dataType: "json",
-                    success: function(data) { updateData(data); }
+                    success: function(data) {
+                        if (data.hasOwnProperty('Error')) {
+                            alert('Error at backend\n' + "Message: " + data['Error']);
+                        } else {
+                            updateData(data);
+                        }
+                    }
                 });
             }
 
@@ -1152,7 +1158,15 @@
                         "symbol": symbol
                     },
                     dataType: "json",
-                    success: function(data) { printFinancials(symbol, data["financials"]); }
+                    success: function(data) {
+                        if (data.hasOwnProperty('Error')) {
+                            alert('Error at backend for getFinancials\n' + "Message: " + data['Error']);
+                            var active = false;
+                            var timer = setTimeout(() => { getFinancials(symbol); clearTimeout(timer); }, 1000 * 10 * 1);
+                        } else {
+                            printFinancials(symbol, data["financials"]);
+                        }
+                    }
                 });
             }
         </script>
@@ -1161,12 +1175,12 @@
         <script>
             function addStockHoldingResult(data) {
                 if (data === "Success") {
+                    $('#myModal').modal('toggle');
                     alert("Stock Holding successfully added to your portfolio");
+                    location.reload();
                 } else {
                     alert("Error adding the stock holding\n" + "Message: " + data);
                 }
-
-                location.reload();
             }
 
             $("#add-holding-form").submit(function(e) {
@@ -1179,7 +1193,6 @@
                     data: form.serialize(),
                     success: function(data) { addStockHoldingResult(data) }
                 });
-                $('#myModal').modal('toggle');
             });
         </script>
 
@@ -1233,6 +1246,27 @@
 
         <!-- Script for working of navbar options -->
         <script>
+            function getPortfolioInsights() {
+                $.ajax({
+                    type: "GET",
+                    url: "/get-portfolio-insights",
+                    dataType: "json",
+                    success: function(data) {
+                        if (data.hasOwnProperty('Error')) {
+                            alert('Error at backend\n' + "Message: " + data['Error']);
+                            getPortfolioInsights();
+                        } else {
+                            var betaElement = document.getElementById("portfolio-beta");
+                            var betaElementTxt = document.getElementById("portfolio-beta-text");
+                            betaElement.innerHTML = parseFloat(data["PortfolioBeta"]).toFixed(2);
+                            betaElementTxt.innerHTML = `Your portfolio moves by a factor of ${ parseFloat(data["PortfolioBeta"]).toFixed(2) } in the direction of market swing`;
+                            var peElement = document.getElementById("portfolio-pe");
+                            peElement.innerHTML = parseFloat(data["PortfolioPE"]).toFixed(2);
+                        }
+                    }
+                });
+            }
+
             function openTab(evt, tabName) {
                 // Declare all variables
                 var i, tabcontent, tablinks;
@@ -1249,6 +1283,10 @@
                 // Show the current tab, and add an "active" class to the button that opened the tab
                 document.getElementById(tabName).style.display = "block";
                 evt.currentTarget.className += " active";
+
+                if (tabName === "portfolio-insights") {
+                    getPortfolioInsights();
+                }
             }
             document.getElementById("defaultOpen").click();
         </script>

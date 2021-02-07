@@ -7,4 +7,5 @@ urlpatterns = [
     path('update-prices', views.update_values, name="update-prices"),
     path('get-financials', views.get_financials, name="update-prices"),
     path('add-holding', views.add_holding, name="add-holding"),
+    path('get-portfolio-insights', views.get_portfolio_insights, name="get-portfolio-insights"),
 ]
