@@ -1,0 +1,629 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  
+<!-- Mirrored from uigaint.com/demo/html/anfra/version1/covid-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2021 07:18:45 GMT -->
+<head>
+    <!-- Required meta tags --> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Risk Profile | Portfolio Management System</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://uigaint.com/demo/html/anfra/assets/css/bootstrap.min.css">
+
+    <!-- External Css -->
+    <link rel="stylesheet" href="https://uigaint.com/demo/html/anfra/assets/css/line-awesome.min.css">
+
+    <!-- Custom Css --> 
+    <link rel="stylesheet" type="text/css" href="https://uigaint.com/demo/html/anfra/css/main.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'riskprofile/css/covid.css' %}">
+ 
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet">
+  </head>
+  <body>
+
+    <div class="ugf-covid covid-bg">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <nav class="navbar navbar-expand-md anfra-nav">
+              <a class="navbar-brand" href="https://uigaint.com/demo/html/anfra/index.html">
+                {% comment %} <img src="images/logo.png" alt=""> {% endcomment %}
+                <h4>Logo Placeholder</h4>
+              </a>
+            </nav>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2">
+            <div class="covid-wrap">
+              <h2>Risk Profile Creation Form</h2>
+              <form action="{% url 'risk-profile' %}" method="post">
+                {% csrf_token %}
+                <div class="covid-test-wrap test-step active">
+                  <div class="test-progress">
+                    <div class="test-progress-step">
+                      <span class="step-number">1/13</span>
+                      <svg>
+                        <circle class="step-1" cx="30" cy="30" r="28" stroke-width="4" fill="none" role="slider" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></circle>
+                      </svg>
+                    </div>
+                  </div>
+                  <h3>What is your age?</h3>
+                  <div class="step-block">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q1-option" class="form-control" id="under-30" value="under-30">
+                          <label for="under-30">Under 30</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q1-option" class="form-control" id="30-40" value="30-40">
+                          <label for="30-40">30 - 40</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q1-option" class="form-control" id="40-50" value="40-50">
+                          <label for="40-50">40 - 50</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q1-option" class="form-control" id="50-60" value="50-60">
+                          <label for="50-60">50 - 60</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="q1-option" class="form-control" id="above-60" value="above-60">
+                      <label for="above-60">Above 60</label>
+                    </div>
+                    <a href="#" class="button">Next</a>
+                  </div>
+                </div>
+                <div class="covid-test-wrap test-step">
+                  <div class="test-progress">
+                    <a href="#" class="prev-btn"><img src="images/arrow-left-grey.png" alt="">Previous</a>
+                    <div class="test-progress-step">
+                      <span class="step-number">2/13</span>
+                      <svg>
+                        <circle class="step-2" cx="30" cy="30" r="28" stroke-width="4" fill="none" role="slider" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></circle>
+                      </svg>
+                    </div>
+                  </div>
+                  <h3>How many months of expenses can your emergency funds cover?</h3>
+                  <div class="step-block">
+                    <div class="form-group">
+                      <input type="radio" name="q2-option" class="form-control" id="no-emergency-fund" value="no-emergency-fund">
+                      <label for="no-emergency-fund">I currently have no emergency funds</label>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="q2-option" class="form-control" id="less-3-months" value="less-3-months">
+                      <label for="less-3-months">Less than 3 months</label>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q2-option" class="form-control" id="4-6-months" value="4-6-months">
+                          <label for="4-6-months">4 to 6 months</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q2-option" class="form-control" id="7-9-months" value="7-9-months">
+                          <label for="7-9-months">7 to 9 months</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="q2-option" class="form-control" id="more-9-months" value="more-9-months">
+                      <label for="more-9-months">More than 9 months</label>
+                    </div>
+                    <a href="#" class="button">Next</a>
+                  </div>
+                </div>
+                <div class="covid-test-wrap test-step">
+                  <div class="test-progress">
+                    <a href="#" class="prev-btn"><img src="images/arrow-left-grey.png" alt="">Previous</a>
+                    <div class="test-progress-step">
+                      <span class="step-number">3/13</span>
+                      <svg>
+                        <circle class="step-3" cx="30" cy="30" r="28" stroke-width="4" fill="none" role="slider" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></circle>
+                      </svg>
+                    </div>
+                  </div>
+                  <h3>What percentage of monthly income can be invested?</h3>
+                  <div class="step-block">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q3-option" class="form-control" id="0-10-percent" value="0-10-percent">
+                          <label for="0-10-percent">0 to 10%</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q3-option" class="form-control" id="11-20-percent" value="11-20-percent">
+                          <label for="11-20-percent">11% to 20%</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q3-option" class="form-control" id="21-30-percent" value="21-30-percent">
+                          <label for="21-30-percent">21% to 30%</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q3-option" class="form-control" id="more-30-percent" value="more-30-percent">
+                          <label for="more-30-percent">More than 30%</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="q3-option" class="form-control" id="no-income" value="no-income">
+                      <label for="no-income">I currently have no income</label>
+                    </div>
+                    <a href="#" class="button">Next</a>
+                  </div>
+                </div>
+                <div class="covid-test-wrap test-step">
+                  <div class="test-progress">
+                    <a href="#" class="prev-btn"><img src="images/arrow-left-grey.png" alt="">Previous</a>
+                    <div class="test-progress-step">
+                      <span class="step-number">4/13</span>
+                      <svg>
+                        <circle class="step-4" cx="30" cy="30" r="28" stroke-width="4" fill="none" role="slider" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></circle>
+                      </svg>
+                    </div>
+                  </div>
+                  <h3>In order to achieve high returns I am willing to choose high risk investments</h3>
+                  <div class="step-block">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q4-option" class="form-control" id="q4-strongly-agree" value="strongly-agree">
+                          <label for="q4-strongly-agree">Strongly Agree</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q4-option" class="form-control" id="q4-agree" value="agree">
+                          <label for="q4-agree">Agree</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q4-option" class="form-control" id="q4-neutral" value="neutral">
+                          <label for="q4-neutral">Neutral</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q4-option" class="form-control" id="q4-disagree" value="disagree">
+                          <label for="q4-disagree">Disagree</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="q4-option" class="form-control" id="q4-strongly-disagree" value="strongly-disagree">
+                      <label for="q4-strongly-disagree">Strongly Disagree</label>
+                    </div>
+                    <a href="#" class="button">Next</a>
+                  </div>
+                </div>
+                <div class="covid-test-wrap test-step">
+                  <div class="test-progress">
+                    <a href="#" class="prev-btn"><img src="images/arrow-left-grey.png" alt="">Previous</a>
+                    <div class="test-progress-step">
+                      <span class="step-number">5/13</span>
+                      <svg>
+                        <circle class="step-5" cx="30" cy="30" r="28" stroke-width="4" fill="none" role="slider" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></circle>
+                      </svg>
+                    </div>
+                  </div>
+                  <h3>What is your expected rate of return from your investments?</h3>
+                  <div class="step-block">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q5-option" class="form-control" id="6-percent" value="6-percent">
+                          <label for="6-percent">6% per annum</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q5-option" class="form-control" id="10-percent" value="10-percent">
+                          <label for="10-percent">10% per annum</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q5-option" class="form-control" id="12-percent" value="12-percent">
+                          <label for="12-percent">12% per annum</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q5-option" class="form-control" id="15-percent" value="15-percent">
+                          <label for="15-percent">15% per annum</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="q5-option" class="form-control" id="more-15-percent" value="more-15-percent">
+                      <label for="more-15-percent">More than 15% per annum</label>
+                    </div>
+                    <a href="#" class="button">Next</a>
+                  </div>
+                </div>
+                <div class="covid-test-wrap test-step">
+                  <div class="test-progress">
+                    <a href="#" class="prev-btn"><img src="images/arrow-left-grey.png" alt="">Previous</a>
+                    <div class="test-progress-step">
+                      <span class="step-number">6/13</span>
+                      <svg>
+                        <circle class="step-6" cx="30" cy="30" r="28" stroke-width="4" fill="none" role="slider" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></circle>
+                      </svg>
+                    </div>
+                  </div>
+                  <h3>I prefer to keep capital safe rather than have high returns</h3>
+                  <div class="step-block">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q6-option" class="form-control" id="q6-strongly-agree" value="strongly-agree">
+                          <label for="q6-strongly-agree">Strongly Agree</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q6-option" class="form-control" id="q6-agree" value="agree">
+                          <label for="q6-agree">Agree</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q6-option" class="form-control" id="q6-neutral" value="neutral">
+                          <label for="q6-neutral">Neutral</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q6-option" class="form-control" id="q6-disagree" value="disagree">
+                          <label for="q6-disagree">Disagree</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="q6-option" class="form-control" id="q6-strongly-disagree" value="strongly-disagree">
+                      <label for="q6-strongly-disagree">Strongly Disagree</label>
+                    </div>
+                    <a href="#" class="button">Next</a>
+                  </div>
+                </div>
+                <div class="covid-test-wrap test-step">
+                  <div class="test-progress">
+                    <a href="#" class="prev-btn"><img src="images/arrow-left-grey.png" alt="">Previous</a>
+                    <div class="test-progress-step">
+                      <span class="step-number">7/13</span>
+                      <svg>
+                        <circle class="step-7" cx="30" cy="30" r="28" stroke-width="4" fill="none" role="slider" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></circle>
+                      </svg>
+                    </div>
+                  </div>
+                  <h3>What is your annual take home income?</h3>
+                  <div class="step-block">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q7-option" class="form-control" id="under-2-lakh" value="under-2-lakh">
+                          <label for="under-2-lakh">Under ₹ 2,00,000</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q7-option" class="form-control" id="2-5-lakh" value="2-5-lakh">
+                          <label for="2-5-lakh">₹ 2,00,000 to ₹ 5,00,000</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q7-option" class="form-control" id="5-10-lakh" value="5-10-lakh">
+                          <label for="5-10-lakh">₹ 5,00,00 to ₹ 10,00,000</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q7-option" class="form-control" id="10-20-lakh" value="10-20-lakh">
+                          <label for="10-20-lakh">₹ 10,00,000 to ₹ 20,00,000</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="q7-option" class="form-control" id="over-20-lakh" value="over-20-lakh">
+                      <label for="over-20-lakh">Over ₹ 20,00,000</label>
+                    </div>
+                    <a href="#" class="button">Next</a>
+                  </div>
+                </div>
+                <div class="covid-test-wrap test-step">
+                  <div class="test-progress">
+                    <a href="#" class="prev-btn"><img src="images/arrow-left-grey.png" alt="">Previous</a>
+                    <div class="test-progress-step">
+                      <span class="step-number">8/13</span>
+                      <svg>
+                        <circle class="step-8" cx="30" cy="30" r="28" stroke-width="4" fill="none" role="slider" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></circle>
+                      </svg>
+                    </div>
+                  </div>
+                  <h3>I would start to worry about my investments if my portfolio value falls</h3>
+                  <div class="step-block">
+                    <div class="form-group">
+                      <input type="radio" name="q8-option" class="form-control" id="less-5-percent" value="less-5-percent">
+                      <label for="less-5-percent">Less than 5% per annum</label>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="q8-option" class="form-control" id="5-10-percent" value="5-10-percent">
+                      <label for="5-10-percent">5% - 10% per annum</label>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q8-option" class="form-control" id="10-20-percent" value="10-20-percent">
+                          <label for="10-20-percent">10% - 20% per annum</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q8-option" class="form-control" id="20-30-percent" value="20-30-percent">
+                          <label for="20-30-percent">20% - 30% per annum</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="q8-option" class="form-control" id="q8-more-30-percent" value="more-30-percent">
+                      <label for="q8-more-30-percent">More than 30% per annum</label>
+                    </div>
+                    <a href="#" class="button">Next</a>
+                  </div>
+                </div>
+                <div class="covid-test-wrap test-step">
+                  <div class="test-progress">
+                    <a href="#" class="prev-btn"><img src="images/arrow-left-grey.png" alt="">Previous</a>
+                    <div class="test-progress-step">
+                      <span class="step-number">9/13</span>
+                      <svg>
+                        <circle class="step-9" cx="30" cy="30" r="28" stroke-width="4" fill="none" role="slider" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></circle>
+                      </svg>
+                    </div>
+                  </div>
+                  <h3>Which of the following best describes your current stage of life?</h3>
+                  <div class="step-block">
+                    <div class="form-group">
+                      <input type="radio" name="q9-option" class="form-control" id="single" value="single">
+                      <label for="single">Single with few financial burdens. Ready to accumulate wealth for future short term and long term goals.</label>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="q9-option" class="form-control" id="couple-without-child" value="couple-without-child">
+                      <label for="couple-without-child">A couple without children. Preparing for the future by establishing a home. Expecting to have or already have a high purchase rate of household and consumer items.</label>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="q9-option" class="form-control" id="young-family" value="young-family">
+                      <label for="young-family">Young family with a home. You have a house loan and childcare cost and maintain only small cash balances.</label>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="q9-option" class="form-control" id="mature-family" value="mature-family">
+                      <label for="mature-family">Mature Family. You are in your peak earning years and your house loan is under control. You both work and you may or may not have children that are growing up or have left home. You're ready to start thinking about your retirement years.</label>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="q9-option" class="form-control" id="preparing-retirement" value="preparing-retirement">
+                      <label for="preparing-retirement">Preparing for retirement. You own your home and have few financial burdens; you want to ensure you can afford a comfortable retirement.</label>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="q9-option" class="form-control" id="retired" value="retired">
+                      <label for="retired">Retired. You rely on existing funds and investments to maintain your lifestyle in retirement. You may already be receiving a Government Pension and/or Superannuation Pension.</label>
+                    </div>
+                    <a href="#" class="button">Next</a>
+                  </div>
+                </div>
+                <div class="covid-test-wrap test-step">
+                  <div class="test-progress">
+                    <a href="#" class="prev-btn"><img src="images/arrow-left-grey.png" alt="">Previous</a>
+                    <div class="test-progress-step">
+                      <span class="step-number">10/13</span>
+                      <svg>
+                        <circle class="step-10" cx="30" cy="30" r="28" stroke-width="4" fill="none" role="slider" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></circle>
+                      </svg>
+                    </div>
+                  </div>
+                  <h3>How familiar are you with investment matters?</h3>
+                  <div class="step-block">
+                    <div class="form-group">
+                      <input type="radio" name="q10-option" class="form-control" id="not-familiar-uncomfortable" value="not-familiar-uncomfortable">
+                      <label for="not-familiar-uncomfortable">Not familiar at all with investment and feel uncomfortable with the complexity.</label>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="q10-option" class="form-control" id="not-familiar" value="not-familiar">
+                      <label for="not-familiar">Not very familiar when it comes to investment.</label>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="q10-option" class="form-control" id="somewhat-familiar" value="somewhat-familiar">
+                      <label for="somewhat-familiar">Somewhat familiar. I don't fully understand investment, including the share market.</label>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="q10-option" class="form-control" id="fairly-familiar" value="fairly-familiar">
+                      <label for="fairly-familiar">Fairly familiar. I understand the various factors which influence investment performance.</label>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="q10-option" class="form-control" id="very-familiar" value="very-familiar">
+                      <label for="very-familiar">Very familiar. I use research and other investment information to make investment decisions. I understand the various factors which influence investment performance.</label>
+                    </div>
+                    <a href="#" class="button">Next</a>
+                  </div>
+                </div>
+                <div class="covid-test-wrap test-step">
+                  <div class="test-progress">
+                    <a href="#" class="prev-btn"><img src="images/arrow-left-grey.png" alt="">Previous</a>
+                    <div class="test-progress-step">
+                      <span class="step-number">11/13</span>
+                      <svg>
+                        <circle class="step-11" cx="30" cy="30" r="28" stroke-width="4" fill="none" role="slider" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></circle>
+                      </svg>
+                    </div>
+                  </div>
+                  <h3>How long would you invest the majority of your money before you think you would need access to it?</h3>
+                  <div class="step-block">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q11-option" class="form-control" id="2-years-or-less" value="2-years-or-less">
+                          <label for="2-years-or-less">In 2 years or less</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q11-option" class="form-control" id="3-5-years" value="3-5-years">
+                          <label for="3-5-years">Within 3-5 years</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q11-option" class="form-control" id="6-10-years" value="6-10-years">
+                          <label for="6-10-years">Within 6-10 years</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q11-option" class="form-control" id="10-plus-years" value="10-plus-years">
+                          <label for="10-plus-years">Not for 10+ years</label>
+                        </div>
+                      </div>
+                    </div>
+                    <a href="#" class="button">Next</a>
+                  </div>
+                </div>
+                <div class="covid-test-wrap test-step">
+                  <div class="test-progress">
+                    <a href="#" class="prev-btn"><img src="images/arrow-left-grey.png" alt="">Previous</a>
+                    <div class="test-progress-step">
+                      <span class="step-number">12/13</span>
+                      <svg>
+                        <circle class="step-12" cx="30" cy="30" r="28" stroke-width="4" fill="none" role="slider" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></circle>
+                      </svg>
+                    </div>
+                  </div>
+                  <h3>Your current job/career/business</h3>
+                  <div class="step-block">
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q12-option" class="form-control" id="is-not-dependable" value="is-not-dependable">
+                          <label for="is-not-dependable">is not dependable</label>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="radio" name="q12-option" class="form-control" id="is-secure" value="is-secure">
+                          <label for="is-secure">is secure</label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="q12-option" class="form-control" id="enough-wealth" value="enough-wealth">
+                      <label for="enough-wealth">Doesn't matter because you expect a large inheritance/have enough wealth already.</label>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="q12-option" class="form-control" id="change-career" value="change-career">
+                      <label for="change-career">Doesn't matter because you expect to change your career path soon.</label>
+                    </div>
+                    <a href="#" class="button">Next</a>
+                  </div>
+                </div>
+                <div class="covid-test-wrap test-step">
+                  <div class="test-progress">
+                    <a href="#" class="prev-btn"><img src="images/arrow-left-grey.png" alt="">Previous</a>
+                    <div class="test-progress-step">
+                      <span class="step-number">13/13</span>
+                      <svg>
+                        <circle class="step-13" cx="30" cy="30" r="28" stroke-width="4" fill="none" role="slider" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"></circle>
+                      </svg>
+                    </div>
+                  </div>
+                  <h3>You invest ₹ 1,00,000 in a share that goes down by 8% the next day. You will</h3>
+                  <div class="step-block">
+                    <div class="form-group">
+                      <input type="radio" name="q13-option" class="form-control" id="average-out" value="average-out">
+                      <label for="average-out">average your cost by investing another ₹ 1,00,000 at a lower price.</label>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="q13-option" class="form-control" id="do-not-bother" value="do-not-bother">
+                      <label for="do-not-bother">do not bother because you had done enough research on the company.</label>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="q13-option" class="form-control" id="book-loss" value="book-loss">
+                      <label for="book-loss">book your loss and invest in fixed deposits or bonds.</label>
+                    </div>
+                    <div class="form-group">
+                      <input type="radio" name="q13-option" class="form-control" id="hold-and-sell" value="hold-and-sell">
+                      <label for="hold-and-sell">hold on till the share comes back to your cost price and sell it.</label>
+                    </div>
+                    <button type="submit" class="submit-button">Submit</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="footer">
+              <div class="footer-social">
+                <a href="#"><i class="lab la-facebook-f"></i></a>
+                <a href="#"><i class="lab la-twitter"></i></a>
+                <a href="#"><i class="lab la-linkedin-in"></i></a>
+                <a href="#"><i class="lab la-youtube"></i></a>
+                <a href="#"><i class="lab la-instagram"></i></a>
+              </div>
+              <div class="copyright-text">
+                <script>document.write(new Date().getFullYear())</script> © All Rights Reserved
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://uigaint.com/demo/html/anfra/assets/js/jquery.min.js"></script>
+    <script src="https://uigaint.com/demo/html/anfra/assets/js/popper.min.js"></script>
+    <script src="https://uigaint.com/demo/html/anfra/assets/js/bootstrap.min.js"></script>
+
+    <script src="{% static 'riskprofile/js/custom.js' %}"></script>
+  </body>
+
+<!-- Mirrored from uigaint.com/demo/html/anfra/version1/covid-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 20 Jan 2021 07:18:52 GMT -->
+</html>

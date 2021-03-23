@@ -2,10 +2,12 @@ import csv
 import json
 import random
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from .models import Portfolio, StockHolding
+from riskprofile.models import RiskProfile
+from riskprofile.views import risk_profile
 
 # AlphaVantage API
 from alpha_vantage.timeseries import TimeSeries
@@ -25,43 +27,49 @@ def get_alphavantage_key():
 
 @login_required
 def dashboard(request):
-  portfolio = Portfolio.objects.get(user=request.user)
-  portfolio.update_investment()
-  holding_companies = StockHolding.objects.filter(portfolio=portfolio)
-  holdings = []
-  sectors = [[], []]
-  sector_wise_investment = {}
-  stocks = [[], []]
-  for c in holding_companies:
-    company_symbol = c.company_symbol
-    company_name = c.company_name
-    number_shares = c.number_of_shares
-    investment_amount = c.investment_amount
-    average_cost = investment_amount / number_shares
-    holdings.append({
-      'CompanySymbol': company_symbol,
-      'CompanyName': company_name,
-      'NumberShares': number_shares,
-      'InvestmentAmount': investment_amount,
-      'AverageCost': average_cost,
-    })
-    stocks[0].append(round((investment_amount / portfolio.total_investment) * 100, 2))
-    stocks[1].append(company_symbol)
-    if c.sector in sector_wise_investment:
-      sector_wise_investment[c.sector] += investment_amount
-    else:
-      sector_wise_investment[c.sector] = investment_amount
-  for sec in sector_wise_investment.keys():
-    sectors[0].append(round((sector_wise_investment[sec] / portfolio.total_investment) * 100, 2))
-    sectors[1].append(sec)
-  context = {
-    'holdings': holdings,
-    'totalInvestment': portfolio.total_investment,
-    'stocks': stocks,
-    'sectors': sectors
-  }
+  if RiskProfile.objects.filter(user=request.user).exists():
+    try:
+      portfolio = Portfolio.objects.get(user=request.user)
+    except:
+      portfolio = Portfolio.objects.create(user=request.user)
+    portfolio.update_investment()
+    holding_companies = StockHolding.objects.filter(portfolio=portfolio)
+    holdings = []
+    sectors = [[], []]
+    sector_wise_investment = {}
+    stocks = [[], []]
+    for c in holding_companies:
+      company_symbol = c.company_symbol
+      company_name = c.company_name
+      number_shares = c.number_of_shares
+      investment_amount = c.investment_amount
+      average_cost = investment_amount / number_shares
+      holdings.append({
+        'CompanySymbol': company_symbol,
+        'CompanyName': company_name,
+        'NumberShares': number_shares,
+        'InvestmentAmount': investment_amount,
+        'AverageCost': average_cost,
+      })
+      stocks[0].append(round((investment_amount / portfolio.total_investment) * 100, 2))
+      stocks[1].append(company_symbol)
+      if c.sector in sector_wise_investment:
+        sector_wise_investment[c.sector] += investment_amount
+      else:
+        sector_wise_investment[c.sector] = investment_amount
+    for sec in sector_wise_investment.keys():
+      sectors[0].append(round((sector_wise_investment[sec] / portfolio.total_investment) * 100, 2))
+      sectors[1].append(sec)
+    context = {
+      'holdings': holdings,
+      'totalInvestment': portfolio.total_investment,
+      'stocks': stocks,
+      'sectors': sectors
+    }
 
-  return render(request, 'dashboard/dashboard.html', context)
+    return render(request, 'dashboard/dashboard.html', context)
+  else:
+    return redirect(risk_profile)
 
 
 def get_portfolio_insights(request):

@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     # Our Apps
     'home',
     'dashboard',
+    'riskprofile',
 
     # Third Party - 1) All Auth
     'allauth',
