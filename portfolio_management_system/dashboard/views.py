@@ -1,6 +1,7 @@
 import csv
 import json
 import random
+import requests
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
@@ -60,11 +61,17 @@ def dashboard(request):
     for sec in sector_wise_investment.keys():
       sectors[0].append(round((sector_wise_investment[sec] / portfolio.total_investment) * 100, 2))
       sectors[1].append(sec)
+
+    # Adding
+    news = fetch_news()
+    ###
+
     context = {
       'holdings': holdings,
       'totalInvestment': portfolio.total_investment,
       'stocks': stocks,
-      'sectors': sectors
+      'sectors': sectors,
+      'news': news
     }
 
     return render(request, 'dashboard/dashboard.html', context)
@@ -194,3 +201,26 @@ def send_company_list(request):
         rows.append([row[0], row[1]])
         line_count += 1
   return JsonResponse({"data": rows})
+
+
+def fetch_news():
+  query_params = {
+    "country": "us",
+    "category": "business",
+    "sortBy": "top",
+    "apiKey": settings.NEWSAPI_KEY
+  }
+  main_url = "https://newsapi.org/v2/top-headlines"
+  # fetching data in json format
+  res = requests.get(main_url, params=query_params)
+  open_bbc_page = res.json()
+  # getting all articles in a string article
+  article = open_bbc_page["articles"]
+  results = []
+  for ar in article:
+    results.append([ar["title"], ar["description"], ar["url"]])
+  # Make news as 2 at a time to show on dashboard
+  news = zip(results[::2], results[1::2])
+  if len(results) % 2:
+    news.append((results[-1], None))
+  return news

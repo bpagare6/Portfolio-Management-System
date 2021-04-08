@@ -227,6 +227,12 @@
                                             <i class="uil-thumbs-up mr-2"></i> Recommendations
                                         </a>
                                     </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" onclick="openTab(event, 'news')">
+                                            <i class="uil-newspaper mr-2"></i> News
+                                        </a>
+                                    </li>
      
                                 </ul>
                             </div>
@@ -1005,6 +1011,72 @@
                 </div>
             </div>
 
+            <!-- News -->
+            <div id="news" class="tabcontent">
+                <div class="main-content">
+                    <div class="page-content">
+                        <div class="container-fluid">
+                            <!-- start page title -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="page-title-box d-flex align-items-center justify-content-between">
+                                        <h4 class="mb-0">Dashboard</h4>
+
+                                        <div class="page-title-right">
+                                            <ol class="breadcrumb m-0">
+                                                <li class="breadcrumb-item"><a href="javascript: void(0);">Home</a></li>
+                                                <li class="breadcrumb-item">Dashboard</li>
+                                                <li class="breadcrumb-item active">Top News</li>
+                                            </ol>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end page title -->
+
+                            {% for n1, n2 in news %}
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-12 d-flex align-items-stretch">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h4 class="card-title mb-2">{{ n1.0 }}</h4>
+                                                <p>{{ n1.1 }}</p>
+                                                <a href="{{ n1.2 }}">Read More &nbsp;<i class="fas fa-long-arrow-alt-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12 d-flex align-items-stretch">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h4 class="card-title mb-2">{{ n2.0 }}</h4>
+                                                <p>{{ n2.1 }}</p>
+                                                <a href="{{ n2.2 }}">Read More &nbsp;<i class="fas fa-long-arrow-alt-right"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                            <footer class="footer">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <script>document.write(new Date().getFullYear())</script> © All Rights Reserved
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="text-sm-right d-none d-sm-block">
+                                                Crafted with <i class="fas fa-heart"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
         <!-- END layout-wrapper -->
 
@@ -1072,7 +1144,7 @@
                     dataType: "json",
                     success: function(data) {
                         if (data.hasOwnProperty('Error')) {
-                            alert('Error at backend\n' + "Message: " + data['Error']);
+                            // alert('Error at backend\n' + "Message: " + data['Error']);
                         } else {
                             updateData(data);
                         }
@@ -1160,7 +1232,7 @@
                     dataType: "json",
                     success: function(data) {
                         if (data.hasOwnProperty('Error')) {
-                            alert('Error at backend for getFinancials\n' + "Message: " + data['Error']);
+                            // alert('Error at backend for getFinancials\n' + "Message: " + data['Error']);
                             var active = false;
                             var timer = setTimeout(() => { getFinancials(symbol); clearTimeout(timer); }, 1000 * 10 * 1);
                         } else {
@@ -1253,7 +1325,7 @@
                     dataType: "json",
                     success: function(data) {
                         if (data.hasOwnProperty('Error')) {
-                            alert('Error at backend\n' + "Message: " + data['Error']);
+                            // alert('Error at backend\n' + "Message: " + data['Error']);
                             getPortfolioInsights();
                         } else {
                             var betaElement = document.getElementById("portfolio-beta");
