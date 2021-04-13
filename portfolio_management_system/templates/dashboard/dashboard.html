@@ -2,12 +2,10 @@
 <!doctype html>
 <html lang="en">
 
-    
-<!-- Mirrored from themesbrand.com/minible/layouts/horizontal/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jan 2021 11:50:25 GMT -->
 <head>
 
         <meta charset="utf-8" />
-        <title>Dashboard | Minible - Responsive Bootstrap 4 Admin Dashboard</title>
+        <title>Dashboard | Portfolio Management System</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
@@ -102,7 +100,7 @@
                             <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="uil-bell"></i>
-                                <span class="badge badge-danger badge-pill">3</span>
+                                <span class="badge badge-danger badge-pill"></span>
                             </button>
                             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right p-0"
                                 aria-labelledby="page-header-notifications-dropdown">
@@ -196,9 +194,9 @@
                             <div class="dropdown-menu dropdown-menu-right">
                                 <!-- item-->
                                 <a class="dropdown-item" href="#"><i class="uil uil-user-circle font-size-18 align-middle text-muted mr-1"></i> <span class="align-middle">View Profile</span></a>
-                                <a class="dropdown-item" href="#"><i class="uil uil-wallet font-size-18 align-middle mr-1 text-muted"></i> <span class="align-middle">My Wallet</span></a>
-                                <a class="dropdown-item d-block" href="#"><i class="uil uil-cog font-size-18 align-middle mr-1 text-muted"></i> <span class="align-middle">Settings</span> <span class="badge badge-soft-success badge-pill mt-1 ml-2">03</span></a>
-                                <a class="dropdown-item" href="#"><i class="uil uil-lock-alt font-size-18 align-middle mr-1 text-muted"></i> <span class="align-middle">Lock screen</span></a>
+                                {% comment %} <a class="dropdown-item" href="#"><i class="uil uil-wallet font-size-18 align-middle mr-1 text-muted"></i> <span class="align-middle">My Wallet</span></a> {% endcomment %}
+                                {% comment %} <a class="dropdown-item d-block" href="#"><i class="uil uil-cog font-size-18 align-middle mr-1 text-muted"></i> <span class="align-middle">Settings</span> <span class="badge badge-soft-success badge-pill mt-1 ml-2">03</span></a> {% endcomment %}
+                                {% comment %} <a class="dropdown-item" href="#"><i class="uil uil-lock-alt font-size-18 align-middle mr-1 text-muted"></i> <span class="align-middle">Lock screen</span></a> {% endcomment %}
                                 <a class="dropdown-item" href="{% url 'account_logout' %}"><i class="uil uil-sign-out-alt font-size-18 align-middle mr-1 text-muted"></i> <span class="align-middle">Sign out</span></a>
                             </div>
                         </div>
@@ -656,8 +654,8 @@
                                                 <div id="total-investment-chart"></div>
                                             </div>
                                             <div>
-                                                <h4 class="mb-1 mt-1">Redflags : <span style="color:#f46a6a;">2 &nbsp;<i class="fas fa-flag"></i></span></h4>
-                                                <p class="text-muted">We spotted possible redflags with 2 of the securities in your portfolio</p>
+                                                <h4 class="mb-1 mt-1">Redflags : <span style="color:#f46a6a;">0 &nbsp;<i class="fas fa-flag"></i></span></h4>
+                                                <p class="text-muted">We spotted possible redflags with 0 of the securities in your portfolio</p>
                                                 <p class="mb-0"><a href="#" style="padding-top: 20px;">See Redflags &nbsp;<i class="fas fa-long-arrow-alt-right"></i></a></p>
                                             </div>
                                         </div>
@@ -712,77 +710,6 @@
                                 <div class="col-lg-12">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="card-title mb-4">Intraday Recommendations</h4>
-                                            <div class="table-responsive">
-                                                <table class="table table-centered table-nowrap mb-0">
-                                                    <thead class="thead-light">
-                                                        <tr>
-                                                            <th>Company Name</th>
-                                                            <th>Last Trading Price (LTP)</th>
-                                                            <th>Entry</th>
-                                                            <th>Target</th>
-                                                            <th>Stop Loss</th>
-                                                            <th>Call</th>
-                                                            <th>Details</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td class="text-body font-weight-bold">ABC</td>
-                                                            <td>₹ 952.95</td>
-                                                            <td>₹ 955.85</td>
-                                                            <td>₹ 1,010.00</td>
-                                                            <td>₹ 950.50</td>
-                                                            <td class="font-weight-bold" style="color:#34c38f;">Buy</td>
-                                                            <td>
-                                                                <!-- Button trigger modal -->
-                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
-                                                                    View Details
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-body font-weight-bold">XYZ</td>
-                                                            <td>₹ 1,023.30</td>
-                                                            <td>₹ 1,020.55</td>
-                                                            <td>₹ 995.50</td>
-                                                            <td>₹ 1,025.50</td>
-                                                            <td class="font-weight-bold" style="color:#f46a6a">Sell</td>
-                                                            <td>
-                                                                <!-- Button trigger modal -->
-                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
-                                                                    View Details
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-body font-weight-bold">LMN</td>
-                                                            <td>₹ 314.95</td>
-                                                            <td>₹ 316.00</td>
-                                                            <td>₹ 322.50</td>
-                                                            <td>₹ 313.00</td>
-                                                            <td class="font-weight-bold" style="color:#34c38f;">Buy</td>
-                                                            <td>
-                                                                <!-- Button trigger modal -->
-                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
-                                                                    View Details
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            <!-- end table-responsive -->
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end row -->
-
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="card">
-                                        <div class="card-body">
                                             <h4 class="card-title mb-4">Short-Term Recommendations</h4>
                                             <div class="table-responsive">
                                                 <table class="table table-centered table-nowrap mb-0">
@@ -799,11 +726,11 @@
                                                     </thead>
                                                     <tbody>
                                                         <tr>
-                                                            <td class="text-body font-weight-bold">ABC</td>
-                                                            <td>₹ 952.95</td>
-                                                            <td>₹ 955.85</td>
-                                                            <td>₹ 1,010.00</td>
-                                                            <td>₹ 950.50</td>
+                                                            <td class="text-body font-weight-bold">Discovery Communications INC. (DISCA)</td>
+                                                            <td>$ 41.81</td>
+                                                            <td>$ 42.10</td>
+                                                            <td>$ 53.40</td>
+                                                            <td>$ 39.50</td>
                                                             <td class="font-weight-bold" style="color:#34c38f;">Buy</td>
                                                             <td>
                                                                 <!-- Button trigger modal -->
@@ -813,12 +740,12 @@
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="text-body font-weight-bold">XYZ</td>
-                                                            <td>₹ 1,023.30</td>
-                                                            <td>₹ 1,020.55</td>
-                                                            <td>₹ 995.50</td>
-                                                            <td>₹ 1,025.50</td>
-                                                            <td class="font-weight-bold" style="color:#f46a6a">Sell</td>
+                                                            <td class="text-body font-weight-bold">FISERV INC. (FISV)</td>
+                                                            <td>$ 126.96</td>
+                                                            <td>$ 128.00</td>
+                                                            <td>$ 143.30</td>
+                                                            <td>$ 110.50</td>
+                                                            <td class="font-weight-bold" style="color:#34c38f;">Buy</td>
                                                             <td>
                                                                 <!-- Button trigger modal -->
                                                                 <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
@@ -827,11 +754,11 @@
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="text-body font-weight-bold">LMN</td>
-                                                            <td>₹ 314.95</td>
-                                                            <td>₹ 316.00</td>
-                                                            <td>₹ 322.50</td>
-                                                            <td>₹ 313.00</td>
+                                                            <td class="text-body font-weight-bold">Devon Energy Corporation (DVN)</td>
+                                                            <td>$ 22.04</td>
+                                                            <td>$ 22.10</td>
+                                                            <td>$ 25.61</td>
+                                                            <td>$ 21.30</td>
                                                             <td class="font-weight-bold" style="color:#34c38f;">Buy</td>
                                                             <td>
                                                                 <!-- Button trigger modal -->
@@ -869,10 +796,10 @@
                                                     </thead>
                                                     <tbody>
                                                         <tr>
-                                                            <td class="text-body font-weight-bold">ABC</td>
-                                                            <td>₹ 952.95</td>
-                                                            <td>₹ 955.85</td>
-                                                            <td>₹ 1,200.00</td>
+                                                            <td class="text-body font-weight-bold">Bank First Corp. (BFC)</td>
+                                                            <td>$ 72.28</td>
+                                                            <td>$ 75.00</td>
+                                                            <td>$ 98.50</td>
                                                             <td>~ 1 year</td>
                                                             <td>
                                                                 <!-- Button trigger modal -->
@@ -882,10 +809,10 @@
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="text-body font-weight-bold">XYZ</td>
-                                                            <td>₹ 1,023.30</td>
-                                                            <td>₹ 1,020.55</td>
-                                                            <td>₹ 1,300.50</td>
+                                                            <td class="text-body font-weight-bold">ACNB Corp. (ACNB)</td>
+                                                            <td>$ 29.13</td>
+                                                            <td>$ 30.50</td>
+                                                            <td>$ 40.30</td>
                                                             <td>~ 1.5 years</td>
                                                             <td>
                                                                 <!-- Button trigger modal -->
@@ -895,10 +822,10 @@
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="text-body font-weight-bold">LMN</td>
-                                                            <td>₹ 314.95</td>
-                                                            <td>₹ 316.00</td>
-                                                            <td>₹ 557.50</td>
+                                                            <td class="text-body font-weight-bold">Axos Financials INC. (AX)</td>
+                                                            <td>$ 48.53</td>
+                                                            <td>$ 50.20</td>
+                                                            <td>$ 62.75</td>
                                                             <td>~ 2 years</td>
                                                             <td>
                                                                 <!-- Button trigger modal -->
@@ -928,8 +855,6 @@
                                                         <tr>
                                                             <th>Company Name</th>
                                                             <th>Last Trading Price (LTP)</th>
-                                                            <th>Sales (CAGR)</th>
-                                                            <th>Net Profit (CAGR)</th>
                                                             <th>Fundamental Strength</th>
                                                             <th>Expected Returns (CAGR)</th>
                                                             <th>Holding Period</th>
@@ -938,28 +863,11 @@
                                                     </thead>
                                                     <tbody>
                                                         <tr>
-                                                            <td class="text-body font-weight-bold">ABC</td>
-                                                            <td>₹ 952.95</td>
-                                                            <td style="color:#34c38f;">+ 28 %</td>
-                                                            <td style="color:#34c38f;">+ 23 %</td>
-                                                            <td class="font-weight-bold">Very Strong</td>
-                                                            <td class="font-weight-bold" style="color:#34c38f;">+ 17 %</td>
-                                                            <td>~ 6 to 7 years</td>
-                                                            <td>
-                                                                <!-- Button trigger modal -->
-                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
-                                                                    View Details
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="text-body font-weight-bold">XYZ</td>
-                                                            <td>₹ 1,023.30</td>
-                                                            <td style="color:#34c38f;">+ 32 %</td>
-                                                            <td style="color:#34c38f;">+ 26 %</td>
+                                                            <td class="text-body font-weight-bold">Molina Healthcare INC. (MOL)</td>
+                                                            <td>$ 240.98</td>
                                                             <td class="font-weight-bold">Strong</td>
-                                                            <td class="font-weight-bold" style="color:#34c38f;">+ 15 %</td>
-                                                            <td>~ 8 years</td>
+                                                            <td class="font-weight-bold" style="color:#34c38f;">+ 12.29 %</td>
+                                                            <td>~ 4 years</td>
                                                             <td>
                                                                 <!-- Button trigger modal -->
                                                                 <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
@@ -968,13 +876,24 @@
                                                             </td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="text-body font-weight-bold">LMN</td>
-                                                            <td>₹ 314.95</td>
-                                                            <td style="color:#34c38f;">+ 18 %</td>
-                                                            <td style="color:#34c38f;">+ 16 %</td>
+                                                            <td class="text-body font-weight-bold">Public Storage (PSA)</td>
+                                                            <td>$ 257.88</td>
                                                             <td class="font-weight-bold">Good</td>
-                                                            <td class="font-weight-bold" style="color:#34c38f;">+ 13 %</td>
+                                                            <td class="font-weight-bold" style="color:#34c38f;">+ 11.23 %</td>
                                                             <td>~ 5 years</td>
+                                                            <td>
+                                                                <!-- Button trigger modal -->
+                                                                <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
+                                                                    View Details
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-body font-weight-bold">Best Buy Co. (BBY)</td>
+                                                            <td>$ 112.48</td>
+                                                            <td class="font-weight-bold">Very Strong</td>
+                                                            <td class="font-weight-bold" style="color:#34c38f;">+ 19.96 %</td>
+                                                            <td>~ 3 years</td>
                                                             <td>
                                                                 <!-- Button trigger modal -->
                                                                 <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light">
@@ -1251,7 +1170,7 @@
                     alert("Stock Holding successfully added to your portfolio");
                     location.reload();
                 } else {
-                    alert("Error adding the stock holding\n" + "Message: " + data);
+                    alert("Error adding the stock holding\n"); // + "Message: " + data);
                 }
             }
 
@@ -1467,6 +1386,4 @@
         </script>
     </body>
 
-
-<!-- Mirrored from themesbrand.com/minible/layouts/horizontal/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 Jan 2021 11:52:26 GMT -->
 </html>
