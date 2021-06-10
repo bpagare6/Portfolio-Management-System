@@ -13,6 +13,7 @@ from riskprofile.views import risk_profile
 # AlphaVantage API
 from alpha_vantage.timeseries import TimeSeries
 from alpha_vantage.fundamentaldata import FundamentalData
+import subprocess as sp
 
 def get_alphavantage_key():
   alphavantage_keys = [
@@ -224,3 +225,12 @@ def fetch_news():
   if len(results) % 2:
     news.append((results[-1], None))
   return news
+
+
+def backtesting(request):
+  print('Function Called')
+  try:
+    output = sp.check_output("quantdom", shell=True)
+  except sp.CalledProcessError:
+    output = 'No such command'
+  return HttpResponse("Success")
